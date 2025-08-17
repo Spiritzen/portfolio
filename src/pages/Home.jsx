@@ -5,12 +5,19 @@ export default function Home() {
     const [loaded, setLoaded] = useState(false);
     useEffect(() => { setLoaded(true); }, []);
 
+      // ✅ Base publique (dépend de vite.config.js → base: '/portfolio/')
+  const base = import.meta.env.BASE_URL;
+
     return (
         <div className={`home-page theme-ink-marble ${loaded ? "home-fade-in" : ""}`}>
             <header className="home-hero">
                 <div className="home-hero-row">
-                    <img className="home-avatar" src="/images/avatar.jpg" alt="Sébastien Cantrelle" />
-
+                      {/* CHANGÉ: /images/... → ${base}images/... */}
+          <img
+            className="home-avatar"
+            src={`${base}images/avatar.jpg`}
+            alt="Sébastien Cantrelle"
+          />
                     <div className="home-hero-info">
                         <h1 className="home-title">Sébastien Cantrelle</h1>
                         <span className="home-tag">Portfolio</span>
@@ -164,9 +171,9 @@ export default function Home() {
 
                         <li>
                             {/* Mets ton CV dans /public/cv.pdf pour que ce lien fonctionne */}
-                            <a className="home-chip" href="/cv.pdf" download>
-                                📄&nbsp;CV (PDF)
-                            </a>
+                            <a className="home-chip" href={`${base}cv.pdf`} download>
+                📄&nbsp;CV (PDF)
+              </a>
                         </li>
 
                         <li>
