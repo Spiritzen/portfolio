@@ -17,7 +17,20 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap"
     rel="stylesheet">
-   <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml">
+<link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml">
+
+<!-- ✅ CSP recommandée pour ton cas -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  img-src 'self' data:;
+  script-src 'self';
+  style-src 'self' 'unsafe-inline';
+  font-src 'self' data:;
+  frame-src https://www.youtube-nocookie.com;
+  connect-src 'self';
+  base-uri 'self';
+  form-action 'self';
+">
 
 
 </head>
