@@ -1,8 +1,7 @@
 name: Deploy Vite to GitHub Pages
 
 on:
-  push:
-    branches: [main]
+  push: { branches: [main] }
   workflow_dispatch:
 
 permissions:
@@ -12,22 +11,20 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
 
-      - run: npm ci
-      # Si npm ci pose souci, tu peux remplacer par:
-      # - run: npm install
+      # ci (strict) puis fallback install si lock incompatible
+      - run: npm ci || npm install
 
       - run: npm run build
 
