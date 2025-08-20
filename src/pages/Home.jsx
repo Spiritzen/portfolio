@@ -1,23 +1,37 @@
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";   // 👈
 import { useEffect, useState } from "react";
+
 import "./Home.css";
 
 export default function Home() {
     const [loaded, setLoaded] = useState(false);
+      const location = useLocation();      
     useEffect(() => { setLoaded(true); }, []);
-
-      // ✅ Base publique (dépend de vite.config.js → base: '/portfolio/')
-  const base = import.meta.env.BASE_URL;
-
+  useEffect(() => {
+    if (!location.hash) return;
+    const el = document.querySelector(location.hash);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [location]);
+    // ✅ Base publique (dépend de vite.config.js → base: '/portfolio/')
+    const base = import.meta.env.BASE_URL;
+const goToContact = (e) => {
+  e.preventDefault();
+  const el = document.getElementById("contact");
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  // Optionnel: mémorise le hash dans l’URL
+  if (history.replaceState) history.replaceState(null, "", "#contact");
+};
     return (
-        <div className={`home-page theme-ink-marble ${loaded ? "home-fade-in" : ""}`}>
+        <div id="top" className={`home-page theme-ink-marble ${loaded ? "home-fade-in" : ""}`}>
             <header className="home-hero">
                 <div className="home-hero-row">
-                      {/* CHANGÉ: /images/... → ${base}images/... */}
-          <img
-            className="home-avatar"
-            src={`${base}images/avatar.jpg`}
-            alt="Sébastien Cantrelle"
-          />
+                    {/* CHANGÉ: /images/... → ${base}images/... */}
+                    <img
+                        className="home-avatar"
+                        src={`${base}images/avatar.jpg`}
+                        alt="Sébastien Cantrelle"
+                    />
                     <div className="home-hero-info">
                         <h1 className="home-title">Sébastien Cantrelle</h1>
                         <span className="home-tag">Portfolio</span>
@@ -25,7 +39,9 @@ export default function Home() {
                     </div>
 
 
-                    <a className="home-cta" href="#projets">Voir mes projets</a>
+                  <a className="home-cta" href="#contact" onClick={goToContact}>
+  Contact
+</a>
                 </div>
             </header>
 
@@ -34,7 +50,11 @@ export default function Home() {
                 <section id="projets" className="home-card home-projets">
                     <h2 className="home-h2">Projets récents</h2>
                     <ul className="home-grid">
-                        <li className="home-tile">Ink Red Plumes (React + Spring)</li>
+                        <li className="home-tile">
+                            <Link className="home-link-tile" to="/ink-red-plumes">
+                                Ink Red Plumes (React + Spring)
+                            </Link>
+                        </li>
                         <li className="home-tile">CC Location (.NET/C# + RazorPage)</li>
                         <li className="home-tile">EcoList (Android/Kotlin)</li>
                         <li className="home-tile">Dev-Game Unity (C#)</li>
@@ -146,16 +166,22 @@ export default function Home() {
                             </a>
                         </li>
 
-                        <li>
-                            {/* Remplace l'URL GitHub par la tienne si besoin */}
-                            <a
-                                className="home-chip"
-                                href="https://github.com/Spiritzen"
-                                target="_blank" rel="noreferrer"
-                            >
-                                🐙&nbsp;GitHub
-                            </a>
-                        </li>
+<li>
+  <a
+    className="home-chip"
+    href="https://github.com/Spiritzen"
+    target="_blank"
+    rel="noreferrer"
+  >
+    <img
+      className="icon-cat"
+      src={`${import.meta.env.BASE_URL}images/chat.svg`}
+      alt=""
+      aria-hidden="true"
+    />
+    GitHub
+  </a>
+</li>
 
 
 
@@ -172,8 +198,8 @@ export default function Home() {
                         <li>
                             {/* Mets ton CV dans /public/cv.pdf pour que ce lien fonctionne */}
                             <a className="home-chip" href={`${base}cv.pdf`} download>
-                📄&nbsp;CV (PDF)
-              </a>
+                                📄&nbsp;CV (PDF)
+                            </a>
                         </li>
 
                         <li>

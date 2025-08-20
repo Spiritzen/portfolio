@@ -12,6 +12,7 @@
   --border-strong: rgba(255,255,255,.08);
 
 }
+html { scroll-behavior: smooth; }
   /* 1) Midnight Gold (ta base + halo doré discret) */
 .theme-midnight-gold {
   --bg-grad:
@@ -185,7 +186,7 @@ body {
 /* Desktop : hover (souris) */
 @media (hover: hover) and (pointer: fine) {
   .home-avatar:hover {
-    transform: scale(1.03) rotate(-1deg);
+    transform: scale(1.03) rotate(-5deg);
     box-shadow: 0 0 12px 10px var(--ring);
   }
 }
@@ -210,7 +211,7 @@ body {
 /* Layout 2 colonnes (centré par les règles plus haut) */
 .home-main {
   display: grid;
-  grid-template-columns: 1fr 2fr;  /* 1/3 - 2/3 */
+grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); /* ⬅️ au lieu de 1fr 2fr */
   gap: 24px;
   padding: 0 0 64px;
   grid-template-areas: "projets video";
@@ -264,8 +265,9 @@ body {
   background: var(--card);
   border: 1px solid var(--border);
   transition: transform .25s ease, box-shadow .35s ease, border-color .25s ease;
-
+  color: var(--fg);
 }
+
 .home-tag{
   display:inline-block;
   margin:4px 0 6px;
@@ -416,8 +418,139 @@ body { background: transparent; }  /* on laisse le fond au ::before */
   transform: translateY(-1px);
   box-shadow: 0 8px 18px rgba(0,0,0,.25);
 }
+.home-link-tile { 
+  display:block;
+   color: inherit;
+    text-decoration: none; 
+  }
+  /* Neutralise tous les états du lien (pas de bleu/pourpre) */
+.home-link-tile:link,
+.home-link-tile:visited,
+.home-link-tile:hover,
+.home-link-tile:active {
+  color: inherit;
+  text-decoration: none;
+}
+.home-link-tile:focus-visible { 
+  outline: 2px solid var(--accent);
+   outline-offset: 3px; 
+  }
+  .home-tile .home-link-tile:link,
+.home-tile .home-link-tile:visited,
+.home-tile .home-link-tile:hover,
+.home-tile .home-link-tile:active { color: inherit; }
 
+/*--- parti demo irp---*/
+/* Listes propres pour la section IRP */
+.irp-list {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  line-height: 1.7;
+}
+.irp-list li { margin: 2px 0; }
 
+.irp-kpis {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0; margin: 8px 0 0;
+}
+.irp-kpis li {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255,255,255,.04);
+  font-weight: 700;
+}
+
+.irp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 8px 12px;
+  list-style: none;
+  padding: 0; margin: 8px 0 0;
+}
+
+/* le lien ne doit pas modifier l’apparence de l’image */
+.home-avatar-link { position: relative;display: inline-block; text-decoration: none; line-height: 0; }
+
+/* focus clavier accessible (anneau autour du cercle) */
+.home-avatar-link:focus-visible img {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+/* Vignette “← Accueil” masquée par défaut */
+.home-avatar-hint {
+  position: absolute;
+  left: 50%;
+  top: -10px;                       /* au-dessus de l’avatar */
+  transform: translate(-50%, -6px) scale(.96);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: .85rem;
+  color: var(--fg);
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+  white-space: nowrap;
+}
+/* Affichage au survol (desktop) */
+@media (hover: hover) and (pointer: fine) {
+  .home-avatar-link:hover .home-avatar-hint {
+    opacity: 1;
+    transform: translate(-50%, -12px) scale(1);
+  }
+}
+/* Affichage au focus clavier (accessibilité) */
+.home-avatar-link:focus-visible .home-avatar-hint,
+.home-avatar:focus-visible + .home-avatar-hint {
+  opacity: 1;
+  transform: translate(-50%, -12px) scale(1);
+  outline: none;
+}
+/* curseur main pour signifier le clic */
+.home-avatar { cursor: pointer; }
+
+/* Option mobile : retire l’éclair de tap */
+@media (hover: none) and (pointer: coarse) {
+  .home-link-tile { -webkit-tap-highlight-color: transparent; }
+}
+/* Aligne l'icône et le texte proprement */
+.home-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+}
+
+/* Icône par défaut (blanche) */
+.home-chip .icon-cat {
+  width: 1.1em;
+  height: 1.1em;
+  flex: 0 0 auto;
+  opacity: .95;
+  transition: transform .2s ease, opacity .2s ease, filter .25s ease;
+  filter: none; /* état normal */
+}
+
+/* Petit feedback au survol (optionnel) */
+.home-chip:hover .icon-cat {
+  transform: translateY(-1px) scale(1.03);
+  opacity: 1;
+}
+.home-chip:hover .icon-gh {
+  opacity: 1;
+}
+/* Laisse les items se réduire dans la grille */
+.home-main > * { min-width: 0; }
+.home-card      { min-width: 0; }
+.home-span-2    { min-width: 0; }
 /* Toujours centré, sans toucher les bords sous 1260px */
 @media (max-width: 1260px) {
   
@@ -428,9 +561,10 @@ body { background: transparent; }  /* on laisse le fond au ::before */
     padding-inline: 0; /* évite le double padding si tu en as ailleurs */
   }
 }
+/* 1 colonne en mobile, mais avec track “compressible” */
 @media (max-width: 768px) {
   .home-main {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       "video"
       "projets";
@@ -451,6 +585,15 @@ body { background: transparent; }  /* on laisse le fond au ::before */
     gap: 12px;
   }
   .home-hero-row .home-cta { margin-left: 0; }
+  .home-avatar {
+  width: 80px;
+  height: 80px;
+
+}
+.home-hero {
+  padding: 24px 0 12px;
+  
+}
 }
 
 /* Mobile : petit feedback au tap */
