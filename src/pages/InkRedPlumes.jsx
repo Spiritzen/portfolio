@@ -50,7 +50,7 @@ export default function InkRedPlumes() {
                     <h2 className="home-h2">Vidéo de démonstration</h2>
                     <div className="home-video-wrap">
                         <iframe
-                            src="https://www.youtube-nocookie.com/embed/DVOQzauF8Es?rel=0&modestbranding=1"
+                            src="https://www.youtube-nocookie.com/embed/0VqsB_-Sshw?rel=0&modestbranding=1"
                             title="Demo Ink Red Plumes"
                             loading="lazy"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -58,7 +58,7 @@ export default function InkRedPlumes() {
                         />
                     </div>
                     <p className="home-video-fallback">
-                        <a href="https://www.youtube.com/watch?v=DVOQzauF8Es" target="_blank" rel="noreferrer">
+                        <a href="https://www.youtube.com/watch?v=0VqsB_-Sshw" target="_blank" rel="noreferrer">
                             Ouvrir sur YouTube
                         </a>
                     </p>
@@ -154,15 +154,15 @@ export default function InkRedPlumes() {
                 <section className=" home-card home-span-2">
                     <h2 className="home-h2">Liens</h2>
                     <ul className="home-contact">
-<li>
-  <Link
-    className="home-chip"
-    to={{ pathname: "/", hash: "#top" }}  // 👈 objet { pathname, hash }
-    replace
-  >
-    ← Retour à l’accueil
-  </Link>
-</li>
+                        <li>
+                            <Link
+                                className="home-chip"
+                                to={{ pathname: "/", hash: "#top" }}  // 👈 objet { pathname, hash }
+                                replace
+                            >
+                                ← Retour à l’accueil
+                            </Link>
+                        </li>
                         <li>
                             <a
                                 className="home-chip"
@@ -180,7 +180,7 @@ export default function InkRedPlumes() {
                             </a>
                         </li>
 
-                          <li>
+                        <li>
                             <a
                                 className="home-chip"
                                 href="https://www.youtube.com/watch?v=DVOQzauF8Es"
@@ -189,7 +189,7 @@ export default function InkRedPlumes() {
                                 🎬&nbsp;Portfolio vidéo
                             </a>
                         </li>
-                           <li>
+                        <li>
                             <a
                                 className="home-chip"
                                 href="https://fr.linkedin.com/in/sebastien-cantrelle-26b695106"
@@ -198,7 +198,7 @@ export default function InkRedPlumes() {
                                 🔗&nbsp;LinkedIn
                             </a>
                         </li>
-                                   <li>
+                        <li>
                             <a className="home-chip" href="mailto:sebastien.cantrelle@hotmail.fr">
                                 📧&nbsp;sebastien.cantrelle@hotmail.fr
                             </a>
