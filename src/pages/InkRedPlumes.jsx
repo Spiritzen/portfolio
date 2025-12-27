@@ -26,7 +26,7 @@ export default function InkRedPlumes() {
                             src={`${base}images/inkredplumes/logo.jpg`}
                             alt="Ink Red Plumes — retour à l’accueil"
                         />
-                        <span className="home-avatar-hint" aria-hidden="true">← Accueil</span>
+                      
                     </Link>
 
                     <div className="home-hero-info">
