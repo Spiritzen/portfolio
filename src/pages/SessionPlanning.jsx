@@ -14,7 +14,6 @@ export default function SessionPlanning() {
     <div className={`home-page theme-ink-marble ${loaded ? "home-fade-in" : ""}`}>
       <header className="home-hero">
         <div className="home-hero-row">
-          {/* Avatar = retour accueil (avec hint) */}
           <Link
             to="/"
             className="home-avatar-link"
@@ -24,20 +23,21 @@ export default function SessionPlanning() {
             <img
               className="home-avatar"
               src={`${base}images/sessionPlanning/logo.png`}
-              alt="Session Planning — retour à l’accueil"
+              alt="MyDashServ — retour à l’accueil"
             />
-      
           </Link>
 
           <div className="home-hero-info">
-            <h1 className="home-title">Session Planning</h1>
-            <span className="home-tag">Étude de cas</span>
+            <h1 className="home-title">MyDashServ</h1>
+            <span className="home-tag">Application métier fullstack</span>
+
             <p className="home-subtitle">
-              Application de gestion de sessions de formation : planification, affectations, collisions horaires, rôles & sécurité (JWT).
+              Application métier fullstack conçue pour répondre à des contraintes réelles de planification :
+              gestion des sessions, matching intelligent des formateurs, détection automatique des conflits horaires
+              et sécurisation avancée via JWT.
             </p>
           </div>
 
-          {/* Bouton retour accueil */}
           <Link className="home-cta" to="/" aria-label="Retour à l’accueil">
             Accueil
           </Link>
@@ -45,15 +45,39 @@ export default function SessionPlanning() {
       </header>
 
       <main className="home-main">
-        {/* ✅ Contexte (colonne de gauche) */}
+        {/* Vidéo */}
+        <section className="home-card home-video">
+          <h2 className="home-h2">Vidéo de démonstration</h2>
+
+          <div className="home-video-wrap">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/I1OuZxcyF3g?rel=0&modestbranding=1"
+              title="Demo MyDashServ"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+
+          <p className="home-video-fallback">
+            <a
+              href="https://www.youtube.com/watch?v=I1OuZxcyF3g"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Ouvrir sur YouTube
+            </a>
+          </p>
+        </section>
+
+        {/* Résumé technique (quick) */}
         <section id="contexte" className="home-card home-projets">
-          <h2 className="home-h2">Contexte (quick)</h2>
+          <h2 className="home-h2">Résumé technique</h2>
 
           <p>
-            Projet CDA orienté <strong>règles métier</strong> : gestion de sessions, affectations de formateurs,
-            et <strong>détection des collisions</strong> sur les créneaux horaires.
-            Objectif : une organisation claire pour chaque acteur (admin / gestionnaire / école / formateur),
-            avec sécurité <strong>JWT</strong>.
+            Étude centrée sur des <strong>règles métier complexes</strong> : gestion multi-rôles,
+            affectations intelligentes et <strong>détection automatique des collisions horaires</strong>.
+            Backend sécurisé via <strong>Spring Security + JWT</strong> et API REST protégée (contrôles côté serveur).
           </p>
 
           <ul className="home-badges">
@@ -62,81 +86,118 @@ export default function SessionPlanning() {
             <li>Spring Boot</li>
             <li>REST • JWT</li>
             <li>SQL</li>
-            <li>Règles métier</li>
+            <li>Architecture en couches</li>
           </ul>
         </section>
 
-        {/* ✅ Vidéo (colonne de droite) */}
-        <section className="home-card home-video">
-          <h2 className="home-h2">Vidéo de démonstration</h2>
+        {/* Ce que j’ai livré */}
+        <section className="home-card home-span-2" id="livrables">
+          <h2 className="home-h2">Ce que j’ai livré</h2>
 
-          <div className="home-video-wrap">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/REPLACE_ME?rel=0&modestbranding=1"
-              title="Demo Session Planning"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
+          <ul className="home-bullets">
+            <li>
+              <b>API REST sécurisée</b> (Spring Security + JWT) avec routes publiques / protégées
+            </li>
+            <li>
+              <b>Workflow de statuts</b> de session + règles de verrouillage côté backend
+            </li>
+            <li>
+              <b>Moteur de matching</b> formateur : compétences, disponibilités, congés, conflits horaires
+            </li>
+            <li>
+              <b>Détection de collisions</b> (contrôles serveur, cohérence planning)
+            </li>
+            <li>
+              <b>Front React</b> : vues admin/gestion, filtres, modales, UX cohérente
+            </li>
+            <li>
+              <b>Base SQL</b> : MCD + dictionnaire de données + base MariaDB (HeidiSQL)
+            </li>
+          </ul>
+        </section>
 
-          <p className="home-video-fallback">
-            <a href="https://www.youtube.com/watch?v=REPLACE_ME" target="_blank" rel="noreferrer">
-              Ouvrir sur YouTube
-            </a>
+        {/* Stack & responsabilités */}
+        <section className="home-card home-span-2" id="stack">
+          <h2 className="home-h2">Stack &amp; responsabilités</h2>
+
+          <ul className="home-bullets">
+            <li>
+              <b>Frontend :</b> React + Vite, composants, modales, intégration API
+            </li>
+            <li>
+              <b>Backend :</b> Spring Boot, services métier, repositories JPA, DTO/projections
+            </li>
+            <li>
+              <b>Sécurité :</b> login, JWT, filtre, routes protégées, gestion des rôles
+            </li>
+            <li>
+              <b>Données :</b> SQL, contraintes, intégrité référentielle (MCD → dictionnaire → BDD)
+            </li>
+            <li>
+              <b>Qualité :</b> règles métier appliquées côté serveur (pas seulement côté UI)
+            </li>
+          </ul>
+        </section>
+
+        {/* Carrousel pleine largeur (modale intégrée) */}
+        <CarrouselSessionPlanning />
+
+        {/* Résultat concret */}
+        <section className="home-card home-span-2" id="resultats">
+          <h2 className="home-h2">Résultat concret</h2>
+
+          <p>
+            MyDashServ empêche les <b>doubles affectations</b>, prend en compte <b>disponibilités</b> et <b>congés</b>,
+            détecte les <b>conflits de créneaux</b> et sécurise les actions sensibles selon le rôle.
+            Les contrôles sont appliqués <b>côté API</b> afin de garantir l’intégrité du planning,
+            même si le frontend est contourné.
           </p>
         </section>
 
-        {/* ✅ Carrousel pleine largeur */}
-        <div className="home-span-2">
-          <CarrouselSessionPlanning />
-        </div>
+        {/* Endpoints clés */}
+        <section className="home-card home-span-2" id="endpoints">
+          <h2 className="home-h2">Endpoints clés (extraits)</h2>
 
-        {/* ✅ Présentation (pleine largeur) */}
-        <section className="home-card home-span-2">
-          <h2 className="home-h2">Contexte du projet & objectifs</h2>
+          <pre className="home-code">
+POST /api/auth/login  → récupère un JWT{"\n"}
+GET  /api/auth/me     → profil (protégé){"\n"}
+GET  /api/sessions    → liste + filtres{"\n"}
+POST /api/sessions    → création (admin/gestion){"\n"}
+GET  /api/affectations/matching?sessionId=...{"\n"}
+POST /api/affectations → proposer / affecter (protégé)
+          </pre>
+
+          <p style={{ marginTop: 8 }}>
+            Authentification stateless via JWT, contrôle des rôles et validations métier côté serveur.
+          </p>
+        </section>
+
+        {/* Problème → Solution → Apport (contexte détaillé) */}
+        <section id="objectifs" className="home-card home-span-2">
+          <h2 className="home-h2">Problème → Solution → Apport</h2>
 
           <p style={{ marginTop: 6 }}>
-            <b>Session Planning</b> est une application destinée à gérer l’organisation de sessions de formation,
-            l’affectation de formateurs et la supervision des disponibilités.
-            Elle répond à un besoin réel du secteur de la formation professionnelle : plannings complexes,
-            contraintes horaires strictes, profils variés et échanges constants entre écoles et intervenants.
+            <b>MyDashServ</b> modélise et résout des problématiques concrètes de planification :
+            sessions multiples, intervenants avec contraintes, et risques de chevauchement.
+            L’application intègre la gestion des sessions, l’affectation optimisée des formateurs,
+            la prise en compte des disponibilités et congés, et la prévention des conflits horaires,
+            dans une architecture fullstack sécurisée et évolutive.
           </p>
-
-          <ul className="home-bullets" style={{ marginTop: 10 }}>
-            <li>Enregistrement des sessions (dates, horaires, lieux, écoles)</li>
-            <li>Affectation des formateurs en respectant leurs disponibilités</li>
-            <li>Détection et prévention des collisions horaires</li>
-            <li>Gestion d’un cycle de vie précis des sessions</li>
-            <li>Visibilité claire du planning pour chaque acteur</li>
-          </ul>
 
           <h3 className="home-h3" style={{ marginTop: 16 }}>
             Règles métier clés
           </h3>
           <ul className="home-bullets">
             <li>Un formateur ne peut pas être affecté à deux sessions simultanément</li>
-            <li>Une affectation peut être proposée puis acceptée ou refusée</li>
-            <li>Une session en statut <b>Brouillon</b> est modifiable librement</li>
-            <li>Une session <b>Confirmée</b> doit être verrouillée et cohérente</li>
-            <li>Les écoles consultent l’historique des propositions</li>
+            <li>Prise en compte des disponibilités et congés</li>
+            <li>Statuts verrouillés selon le cycle de vie</li>
+            <li>Contrôle serveur via règles implémentées en Service</li>
           </ul>
-
-          <h3 className="home-h3" style={{ marginTop: 16 }}>
-            Modèle & architecture
-          </h3>
-          <p>
-            Le modèle relationnel repose sur les entités <b>Formateur</b>, <b>Session</b>, <b>Affectation</b> et <b>École</b>.
-            L’application suit une architecture en couches : Controllers, Services (règles métier), Repositories, DTOs & projections
-            pour des échanges propres et performants.
-          </p>
 
           <h3 className="home-h3" style={{ marginTop: 16 }}>
             Gestion des collisions (cœur technique)
           </h3>
-          <p>
-            Une session est conflictuelle lorsqu’elle chevauche une autre session confirmée sur le même créneau :
-          </p>
+          <p>Détection basée sur la règle suivante :</p>
 
           <pre className="home-code">
 A.date_debut &lt; B.date_fin{"\n"}
@@ -145,22 +206,92 @@ A.date_fin &gt; B.date_debut
           </pre>
 
           <p>
-            Cette logique est intégrée dans une requête SQL optimisée appelée depuis un Repository Spring Boot,
+            Cette logique est exécutée côté backend via Repository Spring Boot,
             garantissant cohérence métier et performance.
           </p>
 
           <h3 className="home-h3" style={{ marginTop: 16 }}>
-            Bilan & perspectives
+            Architecture technique
           </h3>
           <p>
-            Ce projet m’a renforcé sur l’analyse métier, la conception de règles complexes et une API robuste.
-            Évolutions possibles : export PDF, vue calendrier, notifications automatiques, interface mobile.
+            Backend structuré en couches : Controllers, Services (règles métier), Repositories JPA,
+            DTOs/projections. Sécurisation stateless via JWT (filtre personnalisé).
+            Frontend React consommant une API REST protégée.
           </p>
+        </section>
+
+        {/* CTA recrutement */}
+        <section className="home-card home-span-2" id="cta">
+          <h2 className="home-h2">Ce que je recherche</h2>
+          <p>
+            Je recherche un poste <b>développeur fullstack / backend Java</b> (junior),
+            où je peux apporter : conception d’API robustes, règles métier, sécurité JWT
+            et intégration front React. Je suis également motivé pour monter en compétence
+            sur Docker, CI/CD et pratiques DevOps en contexte d’équipe.
+          </p>
+        </section>
+
+        {/* Liens */}
+        <section className="home-card home-span-2">
+          <h2 className="home-h2">Liens</h2>
+          <ul className="home-contact">
+            <li>
+              <Link className="home-chip" to={{ pathname: "/", hash: "#top" }} replace>
+                ← Retour à l’accueil
+              </Link>
+            </li>
+
+            {/* (Repo spécifique à ajouter plus tard) */}
+            <li>
+              <a
+                className="home-chip"
+                href="https://github.com/Spiritzen"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
+            </li>
+
+            <li>
+              <a
+                className="home-chip"
+                href="https://www.youtube.com/watch?v=DVOQzauF8Es"
+                target="_blank"
+                rel="noreferrer"
+              >
+                🎬 Portfolio vidéo
+              </a>
+            </li>
+
+            <li>
+              <a
+                className="home-chip"
+                href="https://fr.linkedin.com/in/sebastien-cantrelle-26b695106"
+                target="_blank"
+                rel="noreferrer"
+              >
+                🔗 LinkedIn
+              </a>
+            </li>
+
+            <li>
+              <a className="home-chip" href="mailto:sebastien.cantrelle@hotmail.fr">
+                📧 sebastien.cantrelle@hotmail.fr
+              </a>
+            </li>
+
+            <li>
+              <a className="home-chip" href="tel:+33629464593">
+                📞 06 29 46 45 93
+              </a>
+            </li>
+          </ul>
         </section>
       </main>
 
       <footer className="home-footer">
-        <small>© {new Date().getFullYear()} Sébastien Cantrelle — Portfolio</small>
+        <small>© {new Date().getFullYear()} Sébastien Cantrelle — MyDashServ</small>
       </footer>
     </div>
   );

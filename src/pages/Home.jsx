@@ -1,3 +1,4 @@
+// src/pages/Home.jsx
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./Home.css";
@@ -25,7 +26,10 @@ export default function Home() {
   };
 
   return (
-    <div id="top" className={`home-page theme-ink-marble ${loaded ? "home-fade-in" : ""}`}>
+    <div
+      id="top"
+      className={`home-page theme-ink-marble ${loaded ? "home-fade-in" : ""}`}
+    >
       <header className="home-hero">
         <div className="home-hero-row">
           <img
@@ -36,7 +40,7 @@ export default function Home() {
 
           <div className="home-hero-info">
             <h1 className="home-title">Sébastien Cantrelle</h1>
-            <span className="home-tag">Portfolio</span>
+           <span className="home-tag">Fullstack Java / Spring / React</span>
             <p className="home-subtitle">Développeur Full-stack & Artiste 2D/3D</p>
           </div>
 
@@ -54,7 +58,7 @@ export default function Home() {
             {/* ✅ 1) Session Planning au-dessus */}
             <li className="home-tile">
               <Link className="home-link-tile" to="/session-planning">
-                Session Planning (React + Spring)
+                MyDashServ (React + Spring)
               </Link>
             </li>
 
@@ -93,7 +97,9 @@ export default function Home() {
         </section>
 
         <section className="home-card home-video">
-          <h2 className="home-h2">Vidéo de présentation</h2>
+          <h2 className="home-h2">
+            Vidéo de présentation générale – parcours & profil (pré-CDA)
+          </h2>
 
           <div className="home-video-wrap">
             <iframe
@@ -104,6 +110,17 @@ export default function Home() {
               allowFullScreen
             />
           </div>
+
+          {/* ✅ Texte de clarification (pré-CDA / post-CDA) */}
+          <p className="home-video-note">
+            ⚠️ Cette vidéo a été réalisée avant ma formation Concepteur
+            Développeur d’Applications (CDA).
+            <br />
+            Elle présente mon parcours, mon profil et ma démarche.
+            <br />
+            👉 Les vidéos suivantes présentent mes projets post-CDA, avec
+            démonstrations techniques détaillées.
+          </p>
 
           <p style={{ textAlign: "center", marginTop: 8 }}>
             <a
@@ -116,20 +133,79 @@ export default function Home() {
           </p>
         </section>
 
+        {/* ✅ NOUVEAU : Bloc “Ce que je cherche” (recruteur-friendly) */}
+        <section id="recherche" className="home-card home-span-2">
+          <h2 className="home-h2">Ce que je cherche</h2>
+
+          <p style={{ marginTop: 8, color: "#ccd0d8ff" }}>
+            Je recherche un poste <strong>backend Java / Spring Boot</strong> (ou{" "}
+            <strong>fullstack React + Spring</strong>) en environnement
+            professionnel, pour contribuer à des applications métier robustes.
+          </p>
+
+          <div className="home-group">
+            <h3 className="home-h3">Ce que j’apporte à une équipe</h3>
+            <ul className="home-bullets" style={{ marginTop: 8 }}>
+              <li>
+                API REST <strong>structurée et sécurisée</strong> (JWT / rôles), avec
+                règles métier implémentées côté serveur.
+              </li>
+              <li>
+                Modélisation <strong>SQL</strong> (MCD/MLD, contraintes, scripts), et
+                approche orientée cohérence des données.
+              </li>
+              <li>
+                Frontend React <strong>propre et maintenable</strong> (composants,
+                UI cohérente, intégration API).
+              </li>
+              <li>
+                Autonomie + rigueur : debug, refacto, documentation, et sens du
+                “livrable” (portfolio, démos, cahier projet).
+              </li>
+            </ul>
+          </div>
+
+          <div className="home-group">
+            <h3 className="home-h3">Type de missions idéales</h3>
+            <ul className="home-badges">
+              <li>API REST (CRUD + règles métier)</li>
+              <li>Spring Security / JWT</li>
+              <li>SQL / requêtes / procédures</li>
+              <li>Intégration React</li>
+              <li>Qualité & maintenance</li>
+            </ul>
+          </div>
+
+          <p style={{ marginTop: 10, color: "#ccd0d8ff" }}>
+            👉 Si mon profil correspond à vos besoins, le plus simple est de me
+            contacter :{" "}
+            <a href="#contact" onClick={goToContact}>
+              accès direct ci-dessous
+            </a>
+            .
+          </p>
+        </section>
+
+        {/* ✅ “À propos” retravaillé (plus orienté recruteurs tech) */}
         <section id="a-propos" className="home-card home-span-2">
           <h2 className="home-h2">À propos</h2>
 
           <p style={{ marginTop: 8, color: "#ccd0d8ff" }}>
             Développeur full-stack{" "}
-            <strong>(React • Spring Boot • .NET Razor Pages)</strong> et artiste 2D/3D
-            <strong> (Blender • Photoshop)</strong>. Actuellement en formation CDA (niveau 6) à l’AFCI,
-            je conçois des applications web robustes, soignées côté UX et performantes.
+            <strong>(React • Spring Boot • .NET Razor Pages)</strong> et artiste
+            2D/3D <strong>(Blender • Photoshop)</strong>. Titulaire du{" "}
+            <strong>titre CDA (RNCP niveau 6)</strong>, je conçois des applications
+            web orientées métier, avec une attention particulière sur{" "}
+            <strong>la sécurité</strong>, la <strong>cohérence des données</strong>{" "}
+            et une <strong>UI claire</strong>.
           </p>
 
           <p style={{ color: "#ccd0d8ff" }}>
-            Je pratique une <strong>veille technique</strong> quotidienne et j’itère en binôme avec un{" "}
-            <strong>assistant IA</strong> (structuration, tests, documentation) pour livrer vite et bien.
-            Ma philosophie&nbsp;: simplicité, accessibilité, performance, et un code clair.
+            Mon approche : une architecture en couches (Controller / Service /
+            Repository), des règles métier côté backend (pas seulement côté UI),
+            des endpoints propres, et une base SQL bien structurée. J’aime livrer
+            du concret : une démo propre, un projet maintenable, et une logique
+            “équipe” (lisibilité, conventions, documentation).
           </p>
 
           <div className="home-group">
@@ -203,14 +279,28 @@ export default function Home() {
             </li>
 
             <li>
-              <a className="home-chip" href="tel:+33629464593" aria-label="Appeler 06 29 46 45 93">
+              <a
+                className="home-chip"
+                href="tel:+33629464593"
+                aria-label="Appeler 06 29 46 45 93"
+              >
                 📞&nbsp;06&nbsp;29&nbsp;46&nbsp;45&nbsp;93
               </a>
             </li>
 
             <li>
-              <a className="home-chip" href="https://github.com/Spiritzen" target="_blank" rel="noreferrer">
-                <img className="icon-cat" src={`${base}images/chat.svg`} alt="" aria-hidden="true" />
+              <a
+                className="home-chip"
+                href="https://github.com/Spiritzen"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  className="icon-cat"
+                  src={`${base}images/chat.svg`}
+                  alt=""
+                  aria-hidden="true"
+                />
                 GitHub
               </a>
             </li>
@@ -233,7 +323,12 @@ export default function Home() {
             </li>
 
             <li>
-              <a className="home-chip" href="https://www.youtube.com/watch?v=DVOQzauF8Es" target="_blank" rel="noreferrer">
+              <a
+                className="home-chip"
+                href="https://www.youtube.com/watch?v=DVOQzauF8Es"
+                target="_blank"
+                rel="noreferrer"
+              >
                 🎬&nbsp;Portfolio vidéo
               </a>
             </li>
