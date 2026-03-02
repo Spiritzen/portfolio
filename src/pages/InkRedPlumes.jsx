@@ -275,16 +275,16 @@ DELETE /api/livres/{"{id}"}    → supprimer (owner/seller/admin)
             </li>
 
             {/* Repo spécifique à ajouter plus tard */}
-            <li>
-              <a
-                className="home-chip"
-                href="https://github.com/Spiritzen"
-                target="_blank"
-                rel="noreferrer"
-              >
-                GitHub
-              </a>
-            </li>
+          <li>
+            <a
+              className="home-chip"
+              href="https://github.com/Spiritzen/InkRedPlumes"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub – InkRedPlumes
+            </a>
+          </li>
 
             <li>
               <a
