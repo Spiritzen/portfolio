@@ -1,11 +1,11 @@
 # 🌍 Sébastien Cantrelle – Portfolio
 
 > Fullstack Developer – Java / Spring Boot / React  
-> RNCP Level 6 – Concepteur Développeur d’Applications
+> RNCP Level 6 – Concepteur Développeur d’Applications  
 
-This repository contains my professional portfolio built with **React (Vite)** and deployed via **GitHub Pages**.
-
-The goal of this project is to present my technical projects, architecture approach and business-oriented applications in a structured and professional way.
+<p align="center">
+  <img src="public/images/portfolio-preview.jpg" width="900"/>
+</p>
 
 ---
 
@@ -17,21 +17,25 @@ The goal of this project is to present my technical projects, architecture appro
 
 ## 🧠 Purpose
 
-This portfolio centralizes my main fullstack projects:
+This repository contains my professional portfolio built with **React (Vite)** and deployed via **GitHub Pages**.
 
-- **MyDashServ** – Training session planning & scheduling engine  
-- **InkRedPlumes** – Fullstack book management platform  
-- **Trajet-Formateur** – Logistics & travel optimization system  
+The goal of this project is to present my technical projects, architecture approach and business-oriented applications in a structured and professional way.
 
-Each project demonstrates:
+---
 
-- REST API design
-- JWT authentication
-- Role-based access control
-- Layered backend architecture
-- React frontend integration
-- Business rule implementation
-- Clean and scalable structure
+## 🧩 Featured Projects
+
+### 🔹 MyDashServ  
+Training session planning & scheduling engine  
+React • Spring Boot • JWT • MariaDB  
+
+### 🔹 InkRedPlumes  
+Fullstack book management platform  
+React • Spring Boot • REST API • Role-based access  
+
+### 🔹 Trajet-Formateur  
+Logistics & travel optimization system  
+React • Spring Boot • GPS API preparation  
 
 ---
 
@@ -49,38 +53,22 @@ Each project demonstrates:
 
 This portfolio reflects my development principles:
 
-- Business logic before UI
-- Server-side validation
-- Clear separation of concerns
-- Clean project structure
-- Evolutive design
-
----
-
-## 📂 Projects Available
-
-### 🔹 MyDashServ
-Training organization management system  
-React • Spring Boot • JWT • MariaDB  
-
-### 🔹 InkRedPlumes
-Fullstack book platform  
-React • Spring Boot • REST API • Role-based access  
-
-### 🔹 Trajet-Formateur
-Mobility & logistics decision system  
-React • Spring Boot • GPS API preparation  
+- Business logic before UI  
+- Server-side validation  
+- Clear separation of concerns  
+- Clean project structure  
+- Evolutive design  
 
 ---
 
 ## 📈 What This Portfolio Demonstrates
 
-- Structured fullstack development
-- Business-oriented thinking
-- Secure API design
-- Architectural discipline
-- Project organization at repository level
-- Professional documentation standards
+- Structured fullstack development  
+- Business-oriented thinking  
+- Secure API design  
+- Architectural discipline  
+- Repository-level organization  
+- Professional documentation standards  
 
 ---
 
