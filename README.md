@@ -4,7 +4,7 @@
 > RNCP Level 6 – Concepteur Développeur d’Applications  
 
 <p align="center">
-  <img src="public/images/portfolio-preview.jpg" width="900"/>
+  <img src="public/images/portfolioImage.jpg" width="900"/>
 </p>
 
 ---
