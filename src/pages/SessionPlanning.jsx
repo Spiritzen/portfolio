@@ -245,11 +245,11 @@ A.date_fin &gt; B.date_debut
             <li>
               <a
                 className="home-chip"
-                href="https://github.com/Spiritzen"
+                href="https://github.com/Spiritzen/MyDashServ"
                 target="_blank"
                 rel="noreferrer"
               >
-                GitHub
+                GitHub – MyDashServ
               </a>
             </li>
 
