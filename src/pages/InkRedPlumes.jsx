@@ -1,7 +1,8 @@
 // src/pages/InkRedPlumes.jsx
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import CarrouselIRP from "../components/CarrouselIRP.jsx";
+import Carousel from "../components/Carousel.jsx";
+import { getIRPSlides } from "../data/dataIRPSlides.js";
 import "./Home.css";
 
 export default function InkRedPlumes() {
@@ -9,6 +10,7 @@ export default function InkRedPlumes() {
   useEffect(() => setLoaded(true), []);
 
   const base = import.meta.env.BASE_URL;
+  const slides = getIRPSlides(base);
 
   return (
     <div className={`home-page theme-ink-marble ${loaded ? "home-fade-in" : ""}`}>
@@ -139,7 +141,7 @@ export default function InkRedPlumes() {
         </section>
 
         {/* Carrousel */}
-        <CarrouselIRP />
+        <Carousel slides={slides} />
 
         {/* Résultat concret */}
         <section className="home-card home-span-2" id="resultats">

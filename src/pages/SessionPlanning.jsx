@@ -1,7 +1,8 @@
 // src/pages/SessionPlanning.jsx
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import CarrouselSessionPlanning from "../components/CarrouselSessionPlanning.jsx";
+import Carousel from "../components/Carousel.jsx";
+import { getSessionPlanningSlides } from "../data/dataSessionPlanningSlides.js";
 import "./Home.css";
 
 export default function SessionPlanning() {
@@ -9,6 +10,7 @@ export default function SessionPlanning() {
   useEffect(() => setLoaded(true), []);
 
   const base = import.meta.env.BASE_URL;
+  const slides = getSessionPlanningSlides(base);
 
   return (
     <div className={`home-page theme-ink-marble ${loaded ? "home-fade-in" : ""}`}>
@@ -140,7 +142,7 @@ export default function SessionPlanning() {
         </section>
 
         {/* Carrousel pleine largeur (modale intégrée) */}
-        <CarrouselSessionPlanning />
+        <Carousel slides={slides} />
 
         {/* Résultat concret */}
         <section className="home-card home-span-2" id="resultats">
