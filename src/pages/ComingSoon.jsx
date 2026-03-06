@@ -106,17 +106,18 @@ export default function ComingSoon({
         </section>
 
         {/* Liens */}
-        <section className="home-card home-span-2">
+        <section className="home-card home-span-2 home-section-links">
           <h2 className="home-h2">Liens</h2>
           <ul className="home-contact">
             <li>
-              <Link className="home-chip" to={{ pathname: "/", hash: "#projets" }} replace>
+              <Link className="home-chip home-chip-accent" to={{ pathname: "/", hash: "#projets" }} replace>
                 ← Retour à l'accueil
               </Link>
             </li>
             <li>
-              <a className="home-chip" href="mailto:sebastien.cantrelle@hotmail.fr">
-                📧 sebastien.cantrelle@hotmail.fr
+              <a className="home-chip" href="https://github.com/Spiritzen" target="_blank" rel="noreferrer">
+                <img className="icon-cat" src={`${base}images/chat.svg`} alt="" aria-hidden="true" />
+                GitHub
               </a>
             </li>
             <li>
@@ -125,8 +126,8 @@ export default function ComingSoon({
               </a>
             </li>
             <li>
-              <a className="home-chip" href="https://github.com/Spiritzen" target="_blank" rel="noreferrer">
-                GitHub
+              <a className="home-chip" href="mailto:sebastien.cantrelle@hotmail.fr">
+                📧 sebastien.cantrelle@hotmail.fr
               </a>
             </li>
           </ul>

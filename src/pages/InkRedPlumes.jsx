@@ -264,27 +264,27 @@ DELETE /api/livres/{"{id}"}    → supprimer (owner/seller/admin)
         </section>
 
         {/* Liens */}
-        <section className="home-card home-span-2">
+        <section className="home-card home-span-2 home-section-links">
           <h2 className="home-h2">Liens</h2>
 
           <ul className="home-contact">
             <li>
-              <Link className="home-chip" to={{ pathname: "/", hash: "#top" }} replace>
+              <Link className="home-chip home-chip-accent" to={{ pathname: "/", hash: "#top" }} replace>
                 ← Retour à l’accueil
               </Link>
             </li>
 
-            {/* Repo spécifique à ajouter plus tard */}
-          <li>
-            <a
-              className="home-chip"
-              href="https://github.com/Spiritzen/InkRedPlumes"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub – InkRedPlumes
-            </a>
-          </li>
+            <li>
+              <a
+                className="home-chip"
+                href="https://github.com/Spiritzen/InkRedPlumes"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img className="icon-cat" src={`${base}images/chat.svg`} alt="" aria-hidden="true" />
+                GitHub – InkRedPlumes
+              </a>
+            </li>
 
             <li>
               <a

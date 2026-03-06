@@ -232,16 +232,15 @@ A.date_fin &gt; B.date_debut
         </section>
 
         {/* Liens */}
-        <section className="home-card home-span-2">
+        <section className="home-card home-span-2 home-section-links">
           <h2 className="home-h2">Liens</h2>
           <ul className="home-contact">
             <li>
-              <Link className="home-chip" to={{ pathname: "/", hash: "#top" }} replace>
+              <Link className="home-chip home-chip-accent" to={{ pathname: "/", hash: "#top" }} replace>
                 ← Retour à l’accueil
               </Link>
             </li>
 
-            {/* (Repo spécifique à ajouter plus tard) */}
             <li>
               <a
                 className="home-chip"
@@ -249,6 +248,7 @@ A.date_fin &gt; B.date_debut
                 target="_blank"
                 rel="noreferrer"
               >
+                <img className="icon-cat" src={`${base}images/chat.svg`} alt="" aria-hidden="true" />
                 GitHub – MyDashServ
               </a>
             </li>
@@ -282,8 +282,8 @@ A.date_fin &gt; B.date_debut
             </li>
 
             <li>
-              <a className="home-chip" href="tel:+33629464593">
-                📞 06 29 46 45 93
+              <a className="home-chip" href="tel:+33629464593" aria-label="Appeler 06 29 46 45 93">
+                📞 06&nbsp;29&nbsp;46&nbsp;45&nbsp;93
               </a>
             </li>
           </ul>
