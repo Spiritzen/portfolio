@@ -238,6 +238,7 @@ body {
 .home-open-to-work {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
   margin-left: 10px;
   padding: 3px 10px;
   border-radius: 999px;
@@ -249,6 +250,30 @@ body {
   letter-spacing: 0.2px;
   vertical-align: middle;
   white-space: nowrap;
+}
+
+/* Point vert animé */
+.home-otw-dot {
+  position: relative;
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  flex-shrink: 0;
+}
+.home-otw-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #10b981;
+  animation: otw-pulse 2.5s ease-out infinite;
+}
+@keyframes otw-pulse {
+  0%   { transform: scale(1);   opacity: .6; }
+  70%  { transform: scale(2.4); opacity: 0;  }
+  100% { transform: scale(2.4); opacity: 0;  }
 }
 
 /* CTA */
