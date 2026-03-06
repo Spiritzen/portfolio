@@ -44,17 +44,6 @@
 }
 .custom-swiper .swiper { width: 100%; }
 
-/* Autoriser le dépassement entre slides (desktop) */
-.irp-swiper .swiper        { width: 100% !important; overflow: visible; }
-.irp-swiper .swiper-wrapper,
-.irp-swiper .swiper-slide  { overflow: visible; }
-
-/* Donne de l’air à CHAQUE slide pour le scale */
-.irp-swiper .swiper-slide {
-  padding-block: 24px;      /* ✅ marge haute/basse par vignette */
-  box-sizing: border-box;
-}
-
 /* ——— Vignette ——— */
 .irp-slide {
   all: unset;
@@ -98,14 +87,6 @@
   color: var(--fg);
   background: linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.6));
   pointer-events: none;
-}
-.irp-modal-actions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;         /* ✅ évite le chevauchement en mobile */
-  margin-top: 12px;
 }
 /* L’overlay peut scroller si besoin (utile quand le contenu dépasse vraiment) */
 .irp-modal {
@@ -190,52 +171,20 @@ width: auto;
   border: 1px solid rgba(212,175,55,0.1);
 }
 
-/* Zone d’actions qui reste visible en bas, sans créer de débord */
+/* Zone d’actions sticky en bas de la modale */
 .irp-modal-actions {
   position: sticky;
   bottom: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 12px;
   padding-block: 10px;
-  background: linear-gradient(180deg,  rgba(0,0,0,0.5), rgba(0,0,0,0.9));
-
+  background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.9));
   width: 100%;
   box-sizing: border-box;
 }
-/* Modal nav arrows */
-.irp-modal-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(0,0,0,.55);
-  color: var(--fg);
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform .15s ease, box-shadow .25s ease, border-color .2s ease;
-}
-
-.irp-modal-arrow:hover {
-  transform: translateY(-50%) scale(1.06);
-  border-color: rgba(212,175,55,.35);
-  box-shadow: 0 10px 26px rgba(212,175,55,.25);
-}
-
-.irp-modal-arrow:active {
-  transform: translateY(-50%) scale(.98);
-}
-
-.irp-prev { left: 8px; }
-.irp-next { right: 8px; }
 
 .home-hint{
   margin: -4px 0 10px;
@@ -245,28 +194,14 @@ width: auto;
 }
 
 /* ——— Mobile : on clippe dur et on désactive l’élévation ——— */
-@media (max-width: 768px){
-  .irp-viewport{
-    overflow: hidden;        /* clip dur en mobile */
+@media (max-width: 768px) {
+  .irp-viewport {
+    overflow: hidden;
     padding-block: 12px;
     padding-inline: 0;
   }
-
-  .irp-swiper,
-  .irp-swiper .swiper,
-  .irp-swiper .swiper-wrapper,
-  .irp-swiper .swiper-slide { overflow: hidden !important; }
-
-  .irp-swiper .swiper-slide { padding-block: 10px; }
   .irp-slide:hover .irp-card { transform: none !important; }
-
   .custom-swiper { overflow: hidden; }
-  .irp-modal-img { width: 100%; }
-}
-@media (max-width: 768px) {
-  .irp-modal-arrow { width: 36px; height: 36px; font-size: 18px; }
-}
-@media (max-width: 768px) {
   .irp-modal-content { max-height: 86dvh; }
   .irp-modal-img { width: 100%; max-height: 56vh; object-fit: contain; }
 }

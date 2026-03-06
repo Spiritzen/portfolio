@@ -332,7 +332,6 @@ body {
 }
 
 .home-h2{
-  margin-top: 4px;
   font-size: clamp(1.2rem, 2.6vw, 1.35rem);
   line-height: 1.25;
   letter-spacing: .2px;

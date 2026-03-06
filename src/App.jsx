@@ -6,6 +6,7 @@ import CcLocation from "./pages/CcLocation.jsx";
 import EcoList from "./pages/EcoList.jsx";
 import DevGameUnity from "./pages/DevGameUnity.jsx";
 import Artist2D3D from "./pages/Artist2D3D.jsx";
+import NotFound from "./pages/NotFound.jsx";
 import NeuralBackground from "./components/NeuralBackground.jsx";
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/ecolist" element={<EcoList />} />
         <Route path="/dev-game-unity" element={<DevGameUnity />} />
         <Route path="/artist-2d-3d" element={<Artist2D3D />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
