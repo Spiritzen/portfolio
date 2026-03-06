@@ -271,6 +271,7 @@ body {
   background: linear-gradient(135deg, rgba(212,175,55,.22), rgba(180,140,30,.14));
   border-color: rgba(212,175,55,.55);
   box-shadow: 0 8px 24px rgba(212,175,55,.22), inset 0 1px 0 rgba(255,255,255,.08);
+  color: #f5e08a;
 }
 .home-hero-row .home-cta{ margin-left: auto; }
 
