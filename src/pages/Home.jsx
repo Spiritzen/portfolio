@@ -41,7 +41,10 @@ export default function Home() {
           <div className="home-hero-info">
             <h1 className="home-title">
               Sébastien Cantrelle
-              <span className="home-open-to-work">🟢&nbsp;Open to work</span>
+              <span className="home-open-to-work">
+                <span className="home-otw-dot" aria-hidden="true"></span>
+                Open to work
+              </span>
             </h1>
             <span className="home-tag">Fullstack Java / Spring / React</span>
             <p className="home-subtitle">Développeur Full-stack & Artiste 2D/3D</p>
