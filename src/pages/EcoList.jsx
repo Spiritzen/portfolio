@@ -16,7 +16,12 @@ export default function EcoList() {
       tag="Android / Kotlin"
       subtitle="Application mobile Android de liste de courses éco-responsable."
       description="Application native Android développée avec Kotlin et Android Studio : gestion de listes de courses, tri par catégories, interface Material Design épurée. Pensée pour encourager des achats plus responsables au quotidien."
-      stack={["Android Studio", "Kotlin", "Room", "Material Design"]}
+      stack={[
+        { label: "Android Studio", badge: "badge-green" },
+        { label: "Kotlin", badge: "badge-green" },
+        { label: "Room", badge: "badge-green" },
+        { label: "Material Design", badge: "badge-green" },
+      ]}
       images={images}
     />
   );

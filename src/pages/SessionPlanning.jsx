@@ -81,10 +81,10 @@ export default function SessionPlanning() {
           </p>
 
           <ul className="home-badges">
-            <li>React</li>
-            <li>Vite</li>
-            <li>Spring Boot</li>
-            <li>REST • JWT</li>
+            <li className="badge-blue">React</li>
+            <li className="badge-blue">Vite</li>
+            <li className="badge-blue">Spring Boot</li>
+            <li className="badge-blue">REST • JWT</li>
             <li>SQL</li>
             <li>Architecture en couches</li>
           </ul>

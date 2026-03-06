@@ -16,7 +16,13 @@ export default function DevGameUnity() {
       tag="Unity / C#"
       subtitle="Développement d'un jeu vidéo avec Unity et C#."
       description="Projet de création de jeu vidéo avec Unity : conception des mécaniques de gameplay, scripting C#, gestion des scènes, des assets et des animations. Un exercice concret de logique de programmation appliquée à l'interactif."
-      stack={["Unity", "C#", "Game Design", "Animations", "Physics"]}
+      stack={[
+        { label: "Unity", badge: "badge-red" },
+        { label: "C#", badge: "badge-red" },
+        { label: "Game Design" },
+        { label: "Animations" },
+        { label: "Physics" },
+      ]}
       images={images}
       footerLabel="Dev-Game Unity"
     />

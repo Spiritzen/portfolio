@@ -73,9 +73,11 @@ export default function ComingSoon({
 
           {stack.length > 0 && (
             <ul className="home-badges" style={{ marginTop: 14 }}>
-              {stack.map((s) => (
-                <li key={s}>{s}</li>
-              ))}
+              {stack.map((s) => {
+                const label = typeof s === "string" ? s : s.label;
+                const badge = typeof s === "string" ? "" : (s.badge ?? "");
+                return <li key={label} className={badge || undefined}>{label}</li>;
+              })}
             </ul>
           )}
         </section>
