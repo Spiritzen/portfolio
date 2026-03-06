@@ -185,6 +185,7 @@ body {
 .home-hero-row{
   display: flex;
   align-items: center;
+  
   gap: 60px;
   flex-wrap: wrap;
   padding: 20px 24px;
@@ -524,6 +525,19 @@ body {
   .home-hero .home-title{
     font-size: 2rem;
     letter-spacing: .2px;
+  }
+
+  /* Badge "Open to work" : passe sous le nom, centré */
+  .home-open-to-work {
+    display: block;
+    margin: 6px auto 0;
+    width: fit-content;
+  }
+
+  /* Titre vidéo : réduit et mieux aéré sur petit écran */
+  .home-video .home-h2 {
+    font-size: 1.05rem;
+    line-height: 1.45;
   }
 }
 
