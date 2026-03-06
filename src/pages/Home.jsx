@@ -39,8 +39,11 @@ export default function Home() {
           />
 
           <div className="home-hero-info">
-            <h1 className="home-title">Sébastien Cantrelle</h1>
-           <span className="home-tag">Fullstack Java / Spring / React</span>
+            <h1 className="home-title">
+              Sébastien Cantrelle
+              <span className="home-open-to-work">🟢&nbsp;Open to work</span>
+            </h1>
+            <span className="home-tag">Fullstack Java / Spring / React</span>
             <p className="home-subtitle">Développeur Full-stack & Artiste 2D/3D</p>
           </div>
 
@@ -58,48 +61,50 @@ export default function Home() {
             {/* ✅ 1) Session Planning au-dessus */}
             <li className="home-tile">
               <Link className="home-link-tile" to="/session-planning">
-                MyDashServ (React + Spring)
+                <span>MyDashServ</span>
+                <span className="home-tile-tech badge-blue">React · Spring</span>
               </Link>
             </li>
 
-            {/* ✅ 2) Ink Red Plumes */}
             <li className="home-tile">
               <Link className="home-link-tile" to="/ink-red-plumes">
-                Ink Red Plumes (React + Spring)
+                <span>Ink Red Plumes</span>
+                <span className="home-tile-tech badge-blue">React · Spring</span>
               </Link>
             </li>
 
-            {/* ✅ 3) Les autres : liens placeholder à remplacer quand tes pages existent */}
             <li className="home-tile">
               <Link className="home-link-tile" to="/cc-location">
-                CC Location (.NET/C# + RazorPage)
+                <span>CC Location</span>
+                <span className="home-tile-tech badge-violet">.NET · C#</span>
               </Link>
             </li>
 
             <li className="home-tile">
               <Link className="home-link-tile" to="/ecolist">
-                EcoList (Android/Kotlin)
+                <span>EcoList</span>
+                <span className="home-tile-tech badge-green">Android · Kotlin</span>
               </Link>
             </li>
 
             <li className="home-tile">
               <Link className="home-link-tile" to="/dev-game-unity">
-                Dev-Game Unity (C#)
+                <span>Dev-Game Unity</span>
+                <span className="home-tile-tech badge-red">Unity · C#</span>
               </Link>
             </li>
 
             <li className="home-tile">
               <Link className="home-link-tile" to="/artist-2d-3d">
-                Artist 2D/3D (Blender/photoshop)
+                <span>Artist 2D/3D</span>
+                <span className="home-tile-tech badge-orange">Blender · Photoshop</span>
               </Link>
             </li>
           </ul>
         </section>
 
         <section className="home-card home-video">
-          <h2 className="home-h2">
-            Vidéo de présentation générale – parcours & profil (pré-CDA)
-          </h2>
+          <h2 className="home-h2">Mon parcours — From Code to Creation</h2>
 
           <div className="home-video-wrap">
             <iframe
