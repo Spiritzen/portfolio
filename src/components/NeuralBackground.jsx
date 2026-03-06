@@ -21,6 +21,9 @@ export default function NeuralBackground({
   });
 
   useEffect(() => {
+    // Respecte la préférence utilisateur pour les animations réduites
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
