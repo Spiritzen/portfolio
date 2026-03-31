@@ -1,85 +1,108 @@
 # 🌍 Sébastien Cantrelle – Portfolio
 
 > Fullstack Developer – Java / Spring Boot / React  
-> RNCP Level 6 – Concepteur Développeur d’Applications  
+> RNCP Level 6 – Concepteur Développeur d'Applications  
+> Open to work · Amiens, France · Remote possible
 
 <p align="center">
   <img src="public/images/portfolioImage.jpg" width="900"/>
 </p>
 
+[![Live Portfolio](https://img.shields.io/badge/🌍_Live-Portfolio-7c3aed?style=for-the-badge)](https://spiritzen.github.io/portfolio/)
+[![GitHub](https://img.shields.io/badge/GitHub-Spiritzen-181717?style=for-the-badge&logo=github)](https://github.com/Spiritzen)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/sebastien-cantrelle-26b695106/)
+
 ---
 
 ## 🚀 Live Portfolio
 
-🌍 https://spiritzen.github.io/portfolio/
-
----
-
-## 🧠 Purpose
-
-This repository contains my professional portfolio built with **React (Vite)** and deployed via **GitHub Pages**.
-
-The goal of this project is to present my technical projects, architecture approach and business-oriented applications in a structured and professional way.
+### 👉 [https://spiritzen.github.io/portfolio/](https://spiritzen.github.io/portfolio/)
 
 ---
 
 ## 🧩 Featured Projects
 
-### 🔹 MyDashServ  
+### ✦ Creative Suite *(most recent — open source, 100% browser)*
+
+| Tool | Description | Stack | Demo |
+|------|-------------|-------|------|
+| 🎛️ **BeatStudio** | Professional step sequencer | React · TypeScript · Tone.js | [Live](https://spiritzen.github.io/BeatStudio/) |
+| ⚡ **EasyStudio** | Visual editor — logos, thumbnails, animations | React · TypeScript · Fabric.js · GSAP | [Live](https://spiritzen.github.io/EasyStudio/) |
+| 🎬 **MotionStudio** | Web animation editor with timeline | React · TypeScript · GSAP · Web Audio API | [Live](https://spiritzen.github.io/MotionStudio/) |
+
+### 🔹 MyDashServ
 Training session planning & scheduling engine  
-React • Spring Boot • JWT • MariaDB  
+`React` · `Spring Boot` · `JWT` · `MariaDB` · `REST API`
 
-### 🔹 InkRedPlumes  
-Fullstack book management platform  
-React • Spring Boot • REST API • Role-based access  
+### 🔹 Ink Red Plumes
+Fullstack book management platform with role-based access  
+`React` · `Spring Boot` · `MySQL` · `JWT` · `REST API`
 
-### 🔹 Trajet-Formateur  
-Logistics & travel optimization system  
-React • Spring Boot • GPS API preparation  
+### 🔹 CC Location
+Vehicle rental management system  
+`.NET` · `C#` · `Razor Pages` · `Azure` · `MVC`
+
+### 🔹 EcoList
+Eco-friendly shopping list mobile app  
+`Android` · `Kotlin`
+
+### 🔹 Dev-Game Unity
+3D game development project  
+`Unity` · `C#`
+
+### 🔹 Artist 2D/3D
+Creative 2D/3D artwork portfolio  
+`Blender` · `Photoshop`
 
 ---
 
 ## 🛠 Tech Stack
 
-- React (Vite)
-- Component-based architecture
-- Modern routing
-- Responsive UI design
-- GitHub Pages deployment
+**Frontend** — React 19 · Vite 7 · JavaScript · TypeScript · CSS Modules · React Router  
+**Backend** — Java · Spring Boot · Spring Security · JWT · .NET · C# · Razor Pages  
+**Data** — SQL · MySQL · MariaDB · MCD/MLD · HeidiSQL  
+**DevOps** — Git · GitHub Actions · GitHub Pages · Docker · Azure · Postman  
+**Creative Suite** — Tone.js · Web Audio API · Fabric.js · GSAP · MediaRecorder API
 
 ---
 
 ## 🏗 Architecture Philosophy
 
-This portfolio reflects my development principles:
-
-- Business logic before UI  
-- Server-side validation  
-- Clear separation of concerns  
-- Clean project structure  
-- Evolutive design  
+- Business logic before UI — server-side validation
+- Layered architecture — Controller / Service / Repository
+- Clean REST API design — JWT, role-based access
+- SQL discipline — proper data modeling, constraints, coherence
+- Deliverable mindset — clean demos, maintainable code
 
 ---
 
-## 📈 What This Portfolio Demonstrates
+## ⚙️ Local Setup
+```bash
+git clone https://github.com/Spiritzen/portfolio.git
+cd portfolio
+npm install
+npm run dev
+```
 
-- Structured fullstack development  
-- Business-oriented thinking  
-- Secure API design  
-- Architectural discipline  
-- Repository-level organization  
-- Professional documentation standards  
+➡️ Open **http://localhost:5173/portfolio/**
+
+---
+
+## 🚀 Deployment
+
+Automated via **GitHub Actions** on every push to `main` → build → GitHub Pages.
+
+➡️ **https://spiritzen.github.io/portfolio/**
 
 ---
 
 ## 👤 Author
 
-Sébastien Cantrelle  
-Fullstack Developer – Java / Spring Boot / React  
-Amiens (France) – Open to remote opportunities  
+**Sébastien Cantrelle** — Fullstack Developer · RNCP Niveau 6  
+Amiens, France · Télétravail possible
 
-🔗 LinkedIn  
-https://www.linkedin.com/in/sebastien-cantrelle-26b695106  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/sebastien-cantrelle-26b695106/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github)](https://github.com/Spiritzen)
+[![Email](https://img.shields.io/badge/Email-1d9e75?style=flat-square)](mailto:sebastien.cantrelle@hotmail.fr)
 
-🌍 Portfolio  
-https://spiritzen.github.io/portfolio/
+*Portfolio · React 19 · Vite 7 · GitHub Pages · 2026*

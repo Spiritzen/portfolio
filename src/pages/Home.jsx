@@ -61,25 +61,32 @@ export default function Home() {
           <h2 className="home-h2">Projets récents</h2>
 
           <ul className="home-grid">
-            {/* ✅ 1) Session Planning au-dessus */}
+            {/* ✅ 1) Creative Suite en premier — projet le plus récent */}
+            <li className="home-tile home-tile-featured">
+              <Link className="home-link-tile" to="/creative-suite">
+                <span>✦ Creative Suite</span>
+                <span className="home-tile-tech badge-rainbow">BeatStudio · EasyStudio · MotionStudio</span>
+              </Link>
+            </li>
+
             <li className="home-tile">
               <Link className="home-link-tile" to="/session-planning">
                 <span>MyDashServ</span>
-                <span className="home-tile-tech badge-blue">React · Spring</span>
+                <span className="home-tile-tech badge-blue">React · Spring · MariaDB</span>
               </Link>
             </li>
 
             <li className="home-tile">
               <Link className="home-link-tile" to="/ink-red-plumes">
                 <span>Ink Red Plumes</span>
-                <span className="home-tile-tech badge-blue">React · Spring</span>
+                <span className="home-tile-tech badge-blue">React · Spring · MySQL</span>
               </Link>
             </li>
 
             <li className="home-tile">
               <Link className="home-link-tile" to="/cc-location">
                 <span>CC Location</span>
-                <span className="home-tile-tech badge-violet">.NET · C#</span>
+                <span className="home-tile-tech badge-violet">.NET · C# · Azure</span>
               </Link>
             </li>
 
@@ -103,6 +110,7 @@ export default function Home() {
                 <span className="home-tile-tech badge-orange">Blender · Photoshop</span>
               </Link>
             </li>
+
           </ul>
         </section>
 
@@ -239,7 +247,7 @@ export default function Home() {
               <li>Dictionnaire de données</li>
               <li>MCD/MLD</li>
               <li>Looping</li>
-              <li>SQL • MySQL</li>
+              <li>SQL • MySQL • MariaDB</li>
               <li>HeidiSQL</li>
             </ul>
           </div>
@@ -252,6 +260,7 @@ export default function Home() {
               <li>VS Code</li>
               <li>Eclipse</li>
               <li>Docker</li>
+              <li>Azure</li>
               <li>Postman</li>
             </ul>
           </div>

@@ -402,6 +402,23 @@ body {
 .badge-green  { background: rgba(16,185,129,0.15);  color: #6ee7b7; border: 1px solid rgba(16,185,129,0.28); }
 .badge-red    { background: rgba(239,68,68,0.15);   color: #fca5a5; border: 1px solid rgba(239,68,68,0.28); }
 .badge-orange { background: rgba(249,115,22,0.15);  color: #fdba74; border: 1px solid rgba(249,115,22,0.28); }
+.badge-rainbow { background: rgba(167,139,250,0.12); color: #c4b5fd; border: 1px solid rgba(167,139,250,0.28); }
+
+/* Tuile featured (Creative Suite) */
+.home-tile-featured {
+  border-color: rgba(167, 139, 250, 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(167, 139, 250, 0.06),
+    rgba(52, 211, 153, 0.04),
+    rgba(251, 191, 36, 0.04)
+  );
+}
+
+.home-tile-featured:hover {
+  border-color: rgba(167, 139, 250, 0.5);
+  box-shadow: 0 12px 28px rgba(167, 139, 250, 0.15);
+}
 
 /* Neutralise états de lien */
 .home-link-tile:link,
