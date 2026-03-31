@@ -83,11 +83,13 @@ export default function CreativeSuite() {
       {/* ══ HEADER — identique à Home ══ */}
       <header className="home-hero">
         <div className="home-hero-row">
-          <img
-            className="home-avatar"
-            src={`${base}images/avatar.jpg`}
-            alt="Sébastien Cantrelle"
-          />
+          <Link to="/" style={{ borderRadius: "50%", display: "inline-block", flexShrink: 0 }}>
+            <img
+              className="home-avatar"
+              src={`${base}images/avatar.jpg`}
+              alt="Sébastien Cantrelle — retour accueil"
+            />
+          </Link>
 
           <div className="home-hero-info">
             <h1 className="home-title">
