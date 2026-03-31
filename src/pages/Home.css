@@ -630,3 +630,10 @@ body {
     animation: none !important;
   }
 }
+
+.home-avatar-link {
+  display: inline-block;
+  border-radius: 50%;
+  flex-shrink: 0;
+  line-height: 0;
+}

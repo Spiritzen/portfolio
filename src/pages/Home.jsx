@@ -36,6 +36,8 @@ export default function Home() {
             className="home-avatar"
             src={`${base}images/avatar.jpg`}
             alt="Sébastien Cantrelle"
+            width="120"
+            height="120"
           />
 
           <div className="home-hero-info">

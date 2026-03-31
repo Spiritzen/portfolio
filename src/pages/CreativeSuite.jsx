@@ -88,6 +88,8 @@ export default function CreativeSuite() {
               className="home-avatar"
               src={`${base}images/avatar.jpg`}
               alt="Sébastien Cantrelle — retour accueil"
+              width="120"
+              height="120"
             />
           </Link>
 
