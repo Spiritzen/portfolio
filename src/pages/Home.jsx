@@ -81,7 +81,7 @@ export default function Home() {
             <li className="home-tile">
               <Link className="home-link-tile" to="/ink-red-plumes">
                 <span>Ink Red Plumes</span>
-                <span className="home-tile-tech badge-blue">React · Spring · MySQL</span>
+                <span className="home-tile-tech badge-blue">React · Spring · MariaDB</span>
               </Link>
             </li>
 
