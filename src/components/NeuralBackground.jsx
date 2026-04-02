@@ -203,12 +203,22 @@ export default function NeuralBackground({
 
     rafRef.current = requestAnimationFrame(step);
 
+    const handleVisibility = () => {
+      if (document.hidden) {
+        if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      } else {
+        rafRef.current = requestAnimationFrame(step);
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mouseleave", onLeave);
       window.removeEventListener("scroll", onScroll);
+      document.removeEventListener('visibilitychange', handleVisibility);
     };
   }, [density, maxLinks, baseSpeed, linkDist, zMin, zMax, opacity, glow]);
 

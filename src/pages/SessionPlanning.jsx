@@ -26,6 +26,8 @@ export default function SessionPlanning() {
               className="home-avatar"
               src={`${base}images/sessionPlanning/logo.png`}
               alt="MyDashServ — retour à l’accueil"
+              width="120"
+              height="120"
             />
           </Link>
 

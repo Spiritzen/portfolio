@@ -40,6 +40,8 @@ export default function ComingSoon({
               className="home-avatar"
               src={`${base}images/avatar.jpg`}
               alt="Retour à l'accueil"
+              width="120"
+              height="120"
             />
           </Link>
 

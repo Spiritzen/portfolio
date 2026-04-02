@@ -26,6 +26,8 @@ export default function InkRedPlumes() {
               className="home-avatar"
               src={`${base}images/inkredplumes/logo.jpg`}
               alt="Ink Red Plumes — retour à l’accueil"
+              width="120"
+              height="120"
             />
           </Link>
 
