@@ -328,3 +328,80 @@
     transition: none;
   }
 }
+
+/* ── Roadmap V2 ── */
+.aos-card-roadmap.home-card:hover {
+  border-color: rgba(245, 158, 11, 0.40);
+  box-shadow: 0 12px 32px rgba(245, 158, 11, 0.14);
+  transform: translateY(-2px);
+}
+
+.aos-roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 4px;
+}
+
+.aos-roadmap-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aos-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.aos-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  padding-left: 2px;
+}
+
+.aos-checklist li::before {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* Fait — vert ✓ */
+.aos-check-done {
+  color: #94a3b8;
+}
+.aos-check-done::before {
+  content: "✓";
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #10b981;
+}
+
+/* À faire — violet □ */
+.aos-check-todo {
+  color: #64748b;
+}
+.aos-check-todo::before {
+  content: "";
+  background: rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+}
+
+@media (max-width: 640px) {
+  .aos-roadmap-grid {
+    grid-template-columns: 1fr;
+  }
+}

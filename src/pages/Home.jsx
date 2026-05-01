@@ -67,9 +67,9 @@ export default function Home() {
 
             <li className="home-tile home-tile-agency">
               <Link className="home-link-tile" to="/agencyos">
-                <span>AgencyOS</span>
+                <span>AgencyOS <span style={{ fontSize: "0.7rem", opacity: 0.7 }}>V2</span></span>
                 <span className="home-tile-tech badge-agency">
-                 React · Spring · PostgreSQL · Docker
+                  SaaS · Spring Boot · PostgreSQL · Docker
                 </span>
               </Link>
             </li>

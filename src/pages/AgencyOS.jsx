@@ -203,6 +203,57 @@ export default function AgencyOS() {
           </ul>
         </section>
 
+        {/* ══ ROADMAP V2 ══ */}
+        <section className="home-card aos-span-2 aos-card-roadmap">
+          <h2 className="home-h2">Roadmap V2 — De "ça fonctionne" à "ça se vend"</h2>
+
+          <p style={{ color: "#94a3b8", marginTop: 8, marginBottom: 16 }}>
+            V1 est en production. V2 transforme le MVP en produit SaaS
+            testable, sécurisé et monétisable.
+          </p>
+
+          <div className="aos-roadmap-grid">
+
+            <div className="aos-roadmap-col">
+              <h3 className="home-h3">🔐 Stabilisation</h3>
+              <ul className="aos-checklist">
+                <li className="aos-check-done">Responsive complet</li>
+                <li className="aos-check-done">Sécurité renforcée (JWT HttpOnly)</li>
+                <li className="aos-check-todo">Monitoring serveur</li>
+                <li className="aos-check-todo">Backup automatique</li>
+              </ul>
+            </div>
+
+            <div className="aos-roadmap-col">
+              <h3 className="home-h3">🧪 Démo libre</h3>
+              <ul className="aos-checklist">
+                <li className="aos-check-todo">Bouton "Tester la démo"</li>
+                <li className="aos-check-todo">Données automatiques</li>
+                <li className="aos-check-todo">Expiration 24h</li>
+              </ul>
+            </div>
+
+            <div className="aos-roadmap-col">
+              <h3 className="home-h3">💳 Monétisation</h3>
+              <ul className="aos-checklist">
+                <li className="aos-check-todo">Plans FREE / PRO / BUSINESS</li>
+                <li className="aos-check-todo">Intégration Stripe</li>
+                <li className="aos-check-todo">Gestion abonnements</li>
+              </ul>
+            </div>
+
+            <div className="aos-roadmap-col">
+              <h3 className="home-h3">🤖 IA & Automatisation</h3>
+              <ul className="aos-checklist">
+                <li className="aos-check-todo">Résumé projet IA (Claude API)</li>
+                <li className="aos-check-todo">Relances automatiques (n8n)</li>
+                <li className="aos-check-todo">Analytics usage</li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
         {/* ══ CONTACT ══ */}
         <section id="contact" className="home-card aos-span-2 aos-card-contact">
           <h2 className="home-h2">Contact</h2>
