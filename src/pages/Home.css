@@ -372,8 +372,6 @@ body {
 
 .home-tile:hover{
   transform: translateY(-3px) scale(1.01);
-  border-color: rgba(212,175,55,.3);
-  box-shadow: 0 12px 26px rgba(0,0,0,.65);
 }
 
 /* ✅ LIEN : recouvre toute la tuile => toute la zone est cliquable */
@@ -406,22 +404,30 @@ body {
 .badge-green  { background: rgba(16,185,129,0.15);  color: #6ee7b7; border: 1px solid rgba(16,185,129,0.28); }
 .badge-red    { background: rgba(239,68,68,0.15);   color: #fca5a5; border: 1px solid rgba(239,68,68,0.28); }
 .badge-orange { background: rgba(249,115,22,0.15);  color: #fdba74; border: 1px solid rgba(249,115,22,0.28); }
-.badge-rainbow { background: rgba(167,139,250,0.12); color: #c4b5fd; border: 1px solid rgba(167,139,250,0.28); }
-
-/* Tuile featured (Creative Suite) */
-.home-tile-featured {
-  border-color: rgba(167, 139, 250, 0.25);
+.badge-rainbow {
   background: linear-gradient(
-    135deg,
-    rgba(167, 139, 250, 0.06),
-    rgba(52, 211, 153, 0.04),
-    rgba(251, 191, 36, 0.04)
+    90deg,
+    rgba(99, 102, 241, 0.15),
+    rgba(16, 185, 129, 0.12),
+    rgba(245, 158, 11, 0.12)
   );
+  color: #e0d9ff;
+  border: 1px solid rgba(99, 102, 241, 0.30);
 }
 
+/* ── Creative Suite — indigo #6366f1 ── */
+.home-tile-featured {
+  border-color: rgba(99, 102, 241, 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.07),
+    rgba(79, 70, 229, 0.03)
+  );
+}
 .home-tile-featured:hover {
-  border-color: rgba(167, 139, 250, 0.5);
-  box-shadow: 0 12px 28px rgba(167, 139, 250, 0.15);
+  border-color: rgba(99, 102, 241, 0.55);
+  box-shadow: 0 12px 28px rgba(99, 102, 241, 0.22);
+  transform: translateY(-3px) scale(1.01);
 }
 
 /* Neutralise états de lien */
@@ -731,4 +737,86 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 14px;
   margin: 12px 0 0;
+}
+.badge-agency {
+  background: rgba(124, 58, 237, 0.15);
+  color: #c4b5fd;
+  border: 1px solid rgba(124, 58, 237, 0.30);
+}
+
+.agency-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: agencyGlowPulse 3s ease-in-out infinite;
+}
+
+@keyframes agencyGlowPulse {
+  0% { filter: drop-shadow(0 0 8px #7c3aed); }
+  50% { filter: drop-shadow(0 0 18px #a855f7); }
+  100% { filter: drop-shadow(0 0 8px #7c3aed); }
+}
+
+/* ══════════════════════════════════════
+   TUILES — couleurs d'accent par projet
+   Principe : border + box-shadow colorés
+   au hover, fond très légèrement teinté.
+   Tout reste dans la DA sombre du portfolio.
+   ══════════════════════════════════════ */
+
+/* ── AgencyOS — violet #7c3aed ── */
+.home-tile-agency {
+  border-color: rgba(124, 58, 237, 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.07),
+    rgba(109, 40, 217, 0.03)
+  );
+}
+.home-tile-agency:hover {
+  border-color: rgba(124, 58, 237, 0.55);
+  box-shadow: 0 12px 28px rgba(124, 58, 237, 0.22);
+  transform: translateY(-3px) scale(1.01);
+}
+
+/* ── MyDashServ — bleu #3b82f6 ── */
+.home-tile-mydash:hover {
+  border-color: rgba(59, 130, 246, 0.50);
+  box-shadow: 0 12px 28px rgba(59, 130, 246, 0.18);
+  transform: translateY(-3px) scale(1.01);
+}
+
+/* ── Ink Red Plumes — rouge #ef4444 ── */
+.home-tile-irp:hover {
+  border-color: rgba(239, 68, 68, 0.50);
+  box-shadow: 0 12px 28px rgba(239, 68, 68, 0.18);
+  transform: translateY(-3px) scale(1.01);
+}
+
+/* ── CC Location — cyan Azure #06b6d4 ── */
+.home-tile-cc:hover {
+  border-color: rgba(6, 182, 212, 0.50);
+  box-shadow: 0 12px 28px rgba(6, 182, 212, 0.18);
+  transform: translateY(-3px) scale(1.01);
+}
+
+/* ── EcoList — vert #10b981 ── */
+.home-tile-eco:hover {
+  border-color: rgba(16, 185, 129, 0.50);
+  box-shadow: 0 12px 28px rgba(16, 185, 129, 0.18);
+  transform: translateY(-3px) scale(1.01);
+}
+
+/* ── Dev-Game Unity — orange #f59e0b ── */
+.home-tile-unity:hover {
+  border-color: rgba(245, 158, 11, 0.50);
+  box-shadow: 0 12px 28px rgba(245, 158, 11, 0.18);
+  transform: translateY(-3px) scale(1.01);
+}
+
+/* ── Artist 2D/3D — rose #ec4899 ── */
+.home-tile-artist:hover {
+  border-color: rgba(236, 72, 153, 0.50);
+  box-shadow: 0 12px 28px rgba(236, 72, 153, 0.18);
+  transform: translateY(-3px) scale(1.01);
 }

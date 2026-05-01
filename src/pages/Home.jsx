@@ -64,6 +64,15 @@ export default function Home() {
 
           <ul className="home-grid">
             {/* ✅ 1) Creative Suite en premier — projet le plus récent */}
+
+            <li className="home-tile home-tile-agency">
+              <Link className="home-link-tile" to="/agencyos">
+                <span>AgencyOS</span>
+                <span className="home-tile-tech badge-agency">
+                 React · Spring · PostgreSQL · Docker
+                </span>
+              </Link>
+            </li>
             <li className="home-tile home-tile-featured">
               <Link className="home-link-tile" to="/creative-suite">
                 <span>✦ Creative Suite</span>
@@ -71,42 +80,42 @@ export default function Home() {
               </Link>
             </li>
 
-            <li className="home-tile">
+            <li className="home-tile home-tile-mydash">
               <Link className="home-link-tile" to="/session-planning">
                 <span>MyDashServ</span>
                 <span className="home-tile-tech badge-blue">React · Spring · MariaDB</span>
               </Link>
             </li>
 
-            <li className="home-tile">
+            <li className="home-tile home-tile-irp">
               <Link className="home-link-tile" to="/ink-red-plumes">
                 <span>Ink Red Plumes</span>
-                <span className="home-tile-tech badge-blue">React · Spring · MariaDB</span>
+                <span className="home-tile-tech badge-blue">React · Spring · MySQL</span>
               </Link>
             </li>
 
-            <li className="home-tile">
+            <li className="home-tile home-tile-cc">
               <Link className="home-link-tile" to="/cc-location">
                 <span>CC Location</span>
                 <span className="home-tile-tech badge-violet">.NET · C# · Azure</span>
               </Link>
             </li>
 
-            <li className="home-tile">
+            <li className="home-tile home-tile-eco">
               <Link className="home-link-tile" to="/ecolist">
                 <span>EcoList</span>
                 <span className="home-tile-tech badge-green">Android · Kotlin</span>
               </Link>
             </li>
 
-            <li className="home-tile">
+            <li className="home-tile home-tile-unity">
               <Link className="home-link-tile" to="/dev-game-unity">
                 <span>Dev-Game Unity</span>
                 <span className="home-tile-tech badge-red">Unity · C#</span>
               </Link>
             </li>
 
-            <li className="home-tile">
+            <li className="home-tile home-tile-artist">
               <Link className="home-link-tile" to="/artist-2d-3d">
                 <span>Artist 2D/3D</span>
                 <span className="home-tile-tech badge-orange">Blender · Photoshop</span>

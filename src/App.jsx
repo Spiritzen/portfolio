@@ -9,6 +9,7 @@ import Artist2D3D from "./pages/Artist2D3D.jsx";
 import CreativeSuite from "./pages/CreativeSuite.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import NeuralBackground from "./components/NeuralBackground.jsx";
+import AgencyOS from "./pages/AgencyOS.jsx";
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/dev-game-unity" element={<DevGameUnity />} />
         <Route path="/artist-2d-3d" element={<Artist2D3D />} />
         <Route path="/creative-suite" element={<CreativeSuite />} />
+        <Route path="/agencyos" element={<AgencyOS />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
