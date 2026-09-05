@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Carousel from "../components/Carousel.jsx";
 import { getIRPSlides } from "../data/dataIRPSlides.js";
 import "./Home.css";
+import "./InkRedPlumes.css";
 
 export default function InkRedPlumes() {
   const [loaded, setLoaded] = useState(false);
@@ -13,7 +14,7 @@ export default function InkRedPlumes() {
   const slides = getIRPSlides(base);
 
   return (
-    <div className={`home-page theme-ink-marble ${loaded ? "home-fade-in" : ""}`}>
+    <div className={`home-page theme-ink-marble ink-red-plumes-page ${loaded ? "home-fade-in" : ""}`}>
       <header className="home-hero">
         <div className="home-hero-row">
           <Link
@@ -62,15 +63,25 @@ export default function InkRedPlumes() {
             />
           </div>
 
-          <p className="home-video-fallback">
+          <div className="irp-video-actions">
             <a
+              className="home-chip"
               href="https://www.youtube.com/watch?v=0VqsB_-Sshw"
               target="_blank"
               rel="noreferrer"
             >
               Ouvrir sur YouTube
             </a>
-          </p>
+            <a
+              className="home-chip home-chip-accent"
+              href="https://github.com/Spiritzen/InkRedPlumes"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img className="icon-cat" src={`${base}images/chat.svg`} alt="" aria-hidden="true" />
+              GitHub – InkRedPlumes
+            </a>
+          </div>
         </section>
 
         {/* Résumé technique */}
@@ -116,6 +127,9 @@ export default function InkRedPlumes() {
             <li>
               <b>Base SQL</b> structurée (relations, intégrité, scripts d’init)
             </li>
+            <li>
+              <b>Intégrité métier</b> : contrôles JWT, rôles et validations appliqués côté API, même si le frontend est contourné
+            </li>
           </ul>
         </section>
 
@@ -145,18 +159,6 @@ export default function InkRedPlumes() {
         {/* Carrousel */}
         <Carousel slides={slides} />
 
-        {/* Résultat concret */}
-        <section className="home-card home-span-2" id="resultats">
-          <h2 className="home-h2">Résultat concret</h2>
-
-          <p>
-            Ink Red Plumes propose un parcours complet : <b>connexion → navigation → recherche → détail → actions</b> selon le rôle.
-            Un vendeur publie/édite/supprime ses livres, un acheteur consulte et interagit avec le catalogue.
-            Les contrôles sont appliqués <b>côté API</b> (JWT + rôles + validations) afin de garantir la cohérence,
-            même si le frontend est contourné.
-          </p>
-        </section>
-
         {/* Endpoints clés */}
         <section className="home-card home-span-2" id="endpoints">
           <h2 className="home-h2">Endpoints clés (extraits)</h2>
@@ -175,96 +177,35 @@ DELETE /api/livres/{"{id}"}    → supprimer (owner/seller/admin)
           </p>
         </section>
 
-        {/* Problème → Solution → Apport */}
+        {/* Du besoin au produit — trois cartes courtes */}
         <section id="objectifs" className="home-card home-span-2">
-          <h2 className="home-h2">Problème → Solution → Apport</h2>
-
-          <p style={{ marginTop: 6 }}>
-            <b>Ink Red Plumes</b> répond à un besoin e-commerce classique mais exigeant : gérer un catalogue,
-            des rôles distincts, des opérations CRUD sécurisées et une UX rapide. La solution s’appuie sur une
-            SPA React (modales et navigation fluide) et une API Spring Boot sécurisée (JWT, rôles, validations),
-            avec une base relationnelle MariaDB/MySQL garantissant l’intégrité des données.
-          </p>
-
-          <div className="home-group">
-            <h3 className="home-h3">Objectifs (SMART)</h3>
-            <ul className="irp-list">
-              <li>
-                <strong>O1.</strong> Authentification <strong>JWT</strong> + rôles <strong>buyer/seller</strong>, CRUD livres &amp; catégories.
-              </li>
-              <li>
-                <strong>O2.</strong> UX SPA sans rechargement : création/édition en <strong>modales</strong>, responsive.
-              </li>
-              <li>
-                <strong>O3.</strong> Recherche + filtres multi-critères avec pagination côté API.
-              </li>
-              <li>
-                <strong>O4.</strong> Robustesse : validations, erreurs gérées, logs (base propre pour itérations).
-              </li>
-            </ul>
+          <h2 className="home-h2">Du besoin au produit</h2>
+          <div className="irp-journey-grid" style={{ marginTop: 8 }}>
+            <article className="irp-journey-card">
+              <h3 className="home-h3">Besoin</h3>
+              <p>
+                Permettre à des vendeurs de publier et gérer leurs livres, tout
+                en offrant aux acheteurs un catalogue consultable avec
+                recherche, filtres et détails.
+              </p>
+            </article>
+            <article className="irp-journey-card">
+              <h3 className="home-h3">Solution</h3>
+              <p>
+                Une SPA React consomme une API Spring Boot sécurisée par JWT,
+                avec des droits distincts pour buyer, seller et admin, et une
+                base relationnelle MariaDB/MySQL.
+              </p>
+            </article>
+            <article className="irp-journey-card">
+              <h3 className="home-h3">Résultat</h3>
+              <p>
+                Un parcours complet sans rechargement : connexion,
+                navigation, recherche, consultation et actions autorisées
+                selon le rôle, avec validation côté serveur.
+              </p>
+            </article>
           </div>
-
-          <div className="home-group">
-            <h3 className="home-h3">KPIs (cibles)</h3>
-            <ul className="irp-kpis">
-              <li>Couverture endpoints prioritaires&nbsp;: <strong>CRUD complet</strong></li>
-              <li>Perf front (mobile)&nbsp;: <strong>Lighthouse ≥ 90</strong></li>
-              <li>API P95 (cible)&nbsp;: <strong>&lt; 300 ms</strong></li>
-              <li>Bugs majeurs en démo&nbsp;: <strong>0</strong></li>
-            </ul>
-
-            <p className="home-note" style={{ opacity: 0.85, marginTop: 8 }}>
-              Mesure P95 (local) :{" "}
-              <code>npx autocannon -d 20 -c 20 http://localhost:8080/api/books</code>
-            </p>
-          </div>
-
-          <div className="home-group">
-            <h3 className="home-h3">Périmètre</h3>
-            <ul className="irp-grid">
-              <li>Front : React (Vite), routing, modales, UI responsive.</li>
-              <li>Back : Spring Boot, REST, JWT, validations.</li>
-              <li>Données : MariaDB/MySQL (dev) + scripts init.</li>
-              <li>Qualité : conventions, logs.</li>
-            </ul>
-
-            <h3 className="home-h3" style={{ marginTop: 10 }}>
-              Hors périmètre (itérations futures)
-            </h3>
-            <ul className="irp-list">
-              <li>Déploiement hébergé (LWS) + nom de domaine.</li>
-              <li>Notifications temps réel.</li>
-              <li>Back-office avancé.</li>
-            </ul>
-          </div>
-
-          <div className="home-group">
-            <h3 className="home-h3">Contraintes &amp; risques</h3>
-            <ul className="irp-list">
-              <li>Planning serré (arbitrage features vs. qualité).</li>
-              <li>Pas de BDD managée en ligne (à ce stade).</li>
-              <li>Gestion des images et cohérence front/back.</li>
-            </ul>
-          </div>
-
-          <div className="home-group">
-            <h3 className="home-h3">Stratégie de démo</h3>
-            <ul className="irp-list">
-              <li>Parcours A→Z : recherche → détail → actions selon rôle.</li>
-              <li>Zoom technique : JWT, endpoints, modèle SQL.</li>
-              <li>Mesures : Lighthouse (front) + bench local (API).</li>
-            </ul>
-          </div>
-        </section>
-
-        {/* CTA recrutement */}
-        <section className="home-card home-span-2" id="cta">
-          <h2 className="home-h2">Ce que je recherche</h2>
-          <p>
-            Je recherche un poste <b>développeur fullstack / backend Java</b> (junior),
-            où je peux apporter : API robustes, sécurité JWT, logique métier, intégration React.
-            Motivé pour monter en puissance sur Docker, CI/CD et pratiques DevOps en équipe.
-          </p>
         </section>
 
         {/* Liens */}
@@ -276,18 +217,6 @@ DELETE /api/livres/{"{id}"}    → supprimer (owner/seller/admin)
               <Link className="home-chip home-chip-accent" to={{ pathname: "/", hash: "#top" }} replace>
                 ← Retour à l’accueil
               </Link>
-            </li>
-
-            <li>
-              <a
-                className="home-chip"
-                href="https://github.com/Spiritzen/InkRedPlumes"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img className="icon-cat" src={`${base}images/chat.svg`} alt="" aria-hidden="true" />
-                GitHub – InkRedPlumes
-              </a>
             </li>
 
             <li>

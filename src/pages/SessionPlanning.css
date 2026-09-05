@@ -1,0 +1,32 @@
+/* src/pages/SessionPlanning.css
+   Styles strictement nécessaires à la page MyDashServ — le reste réutilise
+   les classes .home-* déjà définies dans Home.css. Toutes les règles sont
+   scopées sous .session-planning-page pour ne jamais affecter les autres
+   pages qui partagent .home-hero/.home-main/.home-footer/.home-card. */
+
+/* ── Largeur élargie, propre à cette page ──
+   Reprend exactement le mécanisme de Home.css (max-width à toutes les
+   largeurs + width:min(...) sous 1260px) avec une valeur plus généreuse,
+   pour donner plus de présence à la vidéo et au carrousel sur grand écran. */
+.session-planning-page .home-hero,
+.session-planning-page .home-main,
+.session-planning-page .home-footer {
+  max-width: 1400px;
+}
+@media (max-width: 1260px) {
+  .session-planning-page .home-main,
+  .session-planning-page .home-footer {
+    width: min(1400px, 100% - 32px);
+  }
+}
+
+/* ── Actions sous la vidéo : "Ouvrir sur YouTube" + GitHub, côte à côte
+   sur desktop, empilées/à la ligne sur mobile ── */
+.sp-video-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}

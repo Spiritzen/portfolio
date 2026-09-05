@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title description">
+  <title id="title">Emblème Vitrines locales</title>
+  <desc id="description">Un portail vitré facetté dont deux rubans lumineux dessinent un V.</desc>
+  <defs>
+    <linearGradient id="frame" x1="42" y1="28" x2="214" y2="225" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF78B6"/>
+      <stop offset="0.48" stop-color="#E8328A"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="64" y1="45" x2="190" y2="214" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#25162F" stop-opacity="0.98"/>
+      <stop offset="0.52" stop-color="#111827" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#07131A" stop-opacity="0.98"/>
+    </linearGradient>
+    <linearGradient id="leftRibbon" x1="70" y1="72" x2="128" y2="184" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF91C5"/>
+      <stop offset="0.55" stop-color="#F23891"/>
+      <stop offset="1" stop-color="#B7257E"/>
+    </linearGradient>
+    <linearGradient id="rightRibbon" x1="128" y1="184" x2="190" y2="70" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C64A9E"/>
+      <stop offset="0.5" stop-color="#F16BA6"/>
+      <stop offset="1" stop-color="#F6D365"/>
+    </linearGradient>
+    <radialGradient id="portalGlow" cx="0" cy="0" r="1" gradientTransform="translate(129 132) rotate(90) scale(78 52)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF5BA7" stop-opacity="0.34"/>
+      <stop offset="0.55" stop-color="#9D5CFF" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#9D5CFF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="tileGlow" x="5" y="1" width="246" height="254" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <filter id="softGlow" x="48" y="50" width="160" height="157" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+    <clipPath id="facetClip">
+      <path d="M128 21 202 51 230 121 202 202 128 235 53 204 25 129 51 52Z"/>
+    </clipPath>
+  </defs>
+
+  <path d="M128 21 202 51 230 121 202 202 128 235 53 204 25 129 51 52Z" fill="none" stroke="#E8328A" stroke-opacity="0.28" stroke-width="10" filter="url(#tileGlow)"/>
+  <path d="M128 21 202 51 230 121 202 202 128 235 53 204 25 129 51 52Z" fill="url(#glass)"/>
+  <path d="M128 21 202 51 230 121 202 202 128 235 53 204 25 129 51 52Z" fill="none" stroke="url(#frame)" stroke-width="2.5"/>
+
+  <g clip-path="url(#facetClip)">
+    <ellipse cx="129" cy="132" rx="63" ry="84" fill="url(#portalGlow)"/>
+    <path d="M42 73 128 22 92 116Z" fill="#FFFFFF" fill-opacity="0.035"/>
+    <path d="M216 65 128 22 165 119Z" fill="#F6D365" fill-opacity="0.035"/>
+    <path d="M40 188 126 235 91 144Z" fill="#E8328A" fill-opacity="0.045"/>
+    <path d="M216 190 126 235 165 144Z" fill="#8B5CF6" fill-opacity="0.05"/>
+  </g>
+
+  <path d="M71 73 119 177c3.7 8 14.9 8.2 18.9.3L190 73" fill="none" stroke="#F23891" stroke-opacity="0.32" stroke-width="25" stroke-linecap="round" stroke-linejoin="round" filter="url(#softGlow)"/>
+  <path d="M71 73 120 178c2.9 6.1 11.6 6.2 14.7.2L188 73" fill="none" stroke="url(#leftRibbon)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M132 181 188 73" fill="none" stroke="url(#rightRibbon)" stroke-width="17" stroke-linecap="round"/>
+
+  <path d="M84 61h30" stroke="#FFFFFF" stroke-opacity="0.8" stroke-width="3" stroke-linecap="round"/>
+  <path d="M142 61h30" stroke="#F6D365" stroke-opacity="0.85" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="128" cy="195" r="3.5" fill="#F6D365"/>
+  <circle cx="42" cy="113" r="2.5" fill="#FF78B6"/>
+  <circle cx="214" cy="145" r="2.5" fill="#9D73FF"/>
+</svg>

@@ -48,8 +48,8 @@ export default function Home() {
                 Open to work
               </span>
             </h1>
-            <span className="home-tag">Fullstack Java / Spring / React</span>
-            <p className="home-subtitle">Développeur Full-stack & Artiste 2D/3D</p>
+            <span className="home-tag">Java / Spring Boot · Ruby on Rails · React</span>
+            <p className="home-subtitle">Concepteur développeur Full Stack — applications métier, SaaS et expériences web</p>
           </div>
 
           <a className="home-cta" href="#contact" onClick={goToContact}>
@@ -63,62 +63,63 @@ export default function Home() {
           <h2 className="home-h2">Projets récents</h2>
 
           <ul className="home-grid">
-            {/* ✅ 1) Creative Suite en premier — projet le plus récent */}
+            {/* ✅ Sélection de référence — 8 réalisations, ordre défini au sprint catalogue */}
+
+            <li className="home-tile home-tile-sereno">
+              <Link className="home-link-tile" to="/sereno">
+                <span>Sereno</span>
+                <span className="home-tile-tech badge-teal">Rails · React · Factur-X</span>
+              </Link>
+            </li>
 
             <li className="home-tile home-tile-agency">
               <Link className="home-link-tile" to="/agencyos">
                 <span>AgencyOS <span style={{ fontSize: "0.7rem", opacity: 0.7 }}>V2</span></span>
                 <span className="home-tile-tech badge-agency">
-                  SaaS · Spring Boot · PostgreSQL · Docker
+                  Java 21 · Spring Boot · React
                 </span>
-              </Link>
-            </li>
-            <li className="home-tile home-tile-featured">
-              <Link className="home-link-tile" to="/creative-suite">
-                <span>✦ Creative Suite</span>
-                <span className="home-tile-tech badge-rainbow">BeatStudio · EasyStudio · MotionStudio</span>
-              </Link>
-            </li>
-
-            <li className="home-tile home-tile-mydash">
-              <Link className="home-link-tile" to="/session-planning">
-                <span>MyDashServ</span>
-                <span className="home-tile-tech badge-blue">React · Spring · MariaDB</span>
               </Link>
             </li>
 
             <li className="home-tile home-tile-irp">
               <Link className="home-link-tile" to="/ink-red-plumes">
                 <span>Ink Red Plumes</span>
-                <span className="home-tile-tech badge-blue">React · Spring · MySQL</span>
+                <span className="home-tile-tech badge-blue">Java · Spring Boot · React</span>
               </Link>
             </li>
 
-            <li className="home-tile home-tile-cc">
-              <Link className="home-link-tile" to="/cc-location">
-                <span>CC Location</span>
-                <span className="home-tile-tech badge-violet">.NET · C# · Azure</span>
+            <li className="home-tile home-tile-mydash">
+              <Link className="home-link-tile" to="/session-planning">
+                <span>MyDashServ</span>
+                <span className="home-tile-tech badge-blue">Java · Spring Boot · React</span>
               </Link>
             </li>
 
-            <li className="home-tile home-tile-eco">
-              <Link className="home-link-tile" to="/ecolist">
-                <span>EcoList</span>
-                <span className="home-tile-tech badge-green">Android · Kotlin</span>
+            <li className="home-tile home-tile-trajet">
+              <Link className="home-link-tile" to="/trajet-formateur">
+                <span>Trajet Formateur</span>
+                <span className="home-tile-tech badge-orange">Java · Spring Boot · PostgreSQL</span>
               </Link>
             </li>
 
-            <li className="home-tile home-tile-unity">
-              <Link className="home-link-tile" to="/dev-game-unity">
-                <span>Dev-Game Unity</span>
-                <span className="home-tile-tech badge-red">Unity · C#</span>
+            <li className="home-tile home-tile-velocean">
+              <Link className="home-link-tile" to="/velocean">
+                <span>Vélocéan</span>
+                <span className="home-tile-tech badge-cyan">React · TypeScript · Three.js</span>
               </Link>
             </li>
 
-            <li className="home-tile home-tile-artist">
-              <Link className="home-link-tile" to="/artist-2d-3d">
-                <span>Artist 2D/3D</span>
-                <span className="home-tile-tech badge-orange">Blender · Photoshop</span>
+            <li className="home-tile home-tile-featured">
+              <Link className="home-link-tile" to="/creative-suite">
+                <span>✦ Creative Suite</span>
+                <span className="home-tile-tech badge-rainbow">React · TypeScript · Web APIs</span>
+              </Link>
+            </li>
+
+            <li className="home-tile home-tile-vitrines">
+              <Link className="home-link-tile" to="/vitrines-locales">
+                <span>Vitrines locales</span>
+                <span className="home-tile-tech badge-pink">Astro · React · TypeScript</span>
               </Link>
             </li>
 
@@ -160,138 +161,181 @@ export default function Home() {
           </p>
         </section>
 
-        {/* ✅ NOUVEAU : Bloc “Ce que je cherche” (recruteur-friendly) */}
+        {/* ✅ Bloc "Ce que je cherche" — positionnement à jour (sprint accueil R2) */}
         <section id="recherche" className="home-card home-span-2">
           <h2 className="home-h2">Ce que je cherche</h2>
 
           <p style={{ marginTop: 8, color: "#ccd0d8ff" }}>
-            Je recherche un poste <strong>backend Java / Spring Boot</strong> (ou{" "}
-            <strong>fullstack React + Spring</strong>) en environnement
-            professionnel, pour contribuer à des applications métier robustes.
+            Je recherche en priorité un poste de <strong>développeur Full Stack</strong>{" "}
+            au sein d'une équipe produit, à Amiens ou en télétravail. Je peux
+            intervenir côté backend avec <strong>Java / Spring Boot</strong> ou{" "}
+            <strong>Ruby on Rails</strong>, côté frontend avec{" "}
+            <strong>React / TypeScript</strong>, et sur toute la chaîne de livraison,
+            de la modélisation PostgreSQL aux tests, à la CI/CD et au déploiement.
+          </p>
+
+          <p style={{ color: "#ccd0d8ff" }}>
+            Je suis ouvert au CDI, au CDD et au contrat de professionnalisation. Je
+            peux également intervenir sur des missions freelance clairement cadrées
+            pour des TPE, PME ou porteurs de projet.
           </p>
 
           <div className="home-group">
             <h3 className="home-h3">Ce que j’apporte à une équipe</h3>
             <ul className="home-bullets" style={{ marginTop: 8 }}>
               <li>
-                API REST <strong>structurée et sécurisée</strong> (JWT / rôles), avec
-                règles métier implémentées côté serveur.
+                Une vision de bout en bout : besoin métier, modèle de données, API,
+                interface, tests et livraison.
               </li>
               <li>
-                Modélisation <strong>SQL</strong> (MCD/MLD, contraintes, scripts), et
-                approche orientée cohérence des données.
+                Des backends sécurisés : authentification, rôles,{" "}
+                <strong>JWT en cookies HttpOnly</strong>, isolation multi-tenant et
+                règles métier contrôlées côté serveur.
               </li>
               <li>
-                Frontend React <strong>propre et maintenable</strong> (composants,
-                UI cohérente, intégration API).
+                Des interfaces <strong>React / TypeScript</strong> claires,
+                responsives et accessibles, connectées à de vraies API.
               </li>
               <li>
-                Autonomie + rigueur : debug, refacto, documentation, et sens du
-                “livrable” (portfolio, démos, cahier projet).
+                Une pratique concrète de la qualité : RSpec, Vitest, Testing Library,
+                lint, revues de code, documentation et CI GitHub Actions.
+              </li>
+              <li>
+                De l’autonomie, de la rigueur et une vraie compréhension produit
+                issue de mon expérience du management et de l’entrepreneuriat.
               </li>
             </ul>
           </div>
 
           <div className="home-group">
-            <h3 className="home-h3">Type de missions idéales</h3>
+            <h3 className="home-h3">Domaines d’intervention</h3>
             <ul className="home-badges">
-              <li>API REST (CRUD + règles métier)</li>
-              <li>Spring Security / JWT</li>
-              <li>SQL / requêtes / procédures</li>
-              <li>Intégration React</li>
-              <li>Qualité & maintenance</li>
+              <li>Applications métier & SaaS</li>
+              <li>API REST & sécurité</li>
+              <li>Java / Spring Boot</li>
+              <li>Ruby on Rails</li>
+              <li>React / TypeScript</li>
+              <li>PostgreSQL & multi-tenant</li>
+              <li>Tests & CI/CD</li>
+              <li>Sites vitrines performants</li>
             </ul>
           </div>
 
           <p style={{ marginTop: 10, color: "#ccd0d8ff" }}>
-            👉 Si mon profil correspond à vos besoins, le plus simple est de me
-            contacter :{" "}
+            👉 Si vous recherchez un développeur capable de comprendre le métier
+            autant que la technique,{" "}
             <a href="#contact" onClick={goToContact}>
-              accès direct ci-dessous
+              échangeons directement
             </a>
             .
           </p>
         </section>
 
-        {/* ✅ “À propos” retravaillé (plus orienté recruteurs tech) */}
+        {/* ✅ "À propos" — positionnement à jour (sprint accueil R2) */}
         <section id="a-propos" className="home-card home-span-2">
           <h2 className="home-h2">À propos</h2>
 
           <p style={{ marginTop: 8, color: "#ccd0d8ff" }}>
-            Développeur full-stack{" "}
-            <strong>(React • Spring Boot • .NET Razor Pages)</strong> et artiste
-            2D/3D <strong>(Blender • Photoshop)</strong>. Titulaire du{" "}
-            <strong>titre CDA (RNCP niveau 6)</strong>, je conçois des applications
-            web orientées métier, avec une attention particulière sur{" "}
-            <strong>la sécurité</strong>, la <strong>cohérence des données</strong>{" "}
-            et une <strong>UI claire</strong>.
+            Titulaire d’un <strong>titre de Concepteur Développeur d’Applications
+            (RNCP niveau 6)</strong> et d’un <strong>titre en management de niveau 6</strong>,
+            je conçois des produits web complets : cadrage du besoin, modélisation
+            des données, API sécurisée, interface utilisateur, tests, CI/CD et
+            déploiement.
           </p>
 
           <p style={{ color: "#ccd0d8ff" }}>
-            Mon approche : une architecture en couches (Controller / Service /
-            Repository), des règles métier côté backend (pas seulement côté UI),
-            des endpoints propres, et une base SQL bien structurée. J’aime livrer
-            du concret : une démo propre, un projet maintenable, et une logique
-            “équipe” (lisibilité, conventions, documentation).
+            Mes projets récents illustrent cette progression :{" "}
+            <strong>AgencyOS</strong>, un SaaS multi-tenant développé avec Java 21,
+            Spring Boot, React et PostgreSQL ; <strong>Sereno</strong>, une
+            plateforme de facturation électronique construite avec Ruby on Rails et
+            React, dotée d’un socle Factur-X et de contrôles de conformité
+            automatisés ; ainsi que plusieurs applications métier, outils créatifs
+            et vitrines web en React, TypeScript, Astro et Three.js.
+          </p>
+
+          <p style={{ color: "#ccd0d8ff" }}>
+            Mon expérience du management et de l’entrepreneuriat m’aide à
+            transformer un besoin réel en solution compréhensible et maintenable.
+            J’avance par étapes courtes, je protège l’existant, je documente mes
+            décisions et je préfère une fonctionnalité prouvée par les tests à une
+            promesse difficile à vérifier. Ma sensibilité visuelle complète ce
+            profil technique lorsque l’interface et l’expérience utilisateur font
+            partie du problème à résoudre.
           </p>
 
           <div className="home-group">
-            <h3 className="home-h3">Tech & Langages</h3>
+            <h3 className="home-h3">Backend & API</h3>
+            <ul className="home-badges">
+              <li>Java 21</li>
+              <li>Spring Boot 4</li>
+              <li>Ruby 3</li>
+              <li>Ruby on Rails 8</li>
+              <li>API REST</li>
+              <li>Spring Security</li>
+              <li>JWT HttpOnly</li>
+              <li>Pundit</li>
+              <li>BCrypt</li>
+            </ul>
+          </div>
+
+          <div className="home-group">
+            <h3 className="home-h3">Frontend & expérience web</h3>
             <ul className="home-badges">
               <li>React</li>
-              <li>Vite</li>
-              <li>HTML</li>
-              <li>CSS</li>
+              <li>TypeScript strict</li>
               <li>JavaScript</li>
-              <li>TypeScript (en cours)</li>
-              <li>Java</li>
-              <li>Spring Boot</li>
-              <li>.NET Razor Pages (C#)</li>
-              <li>Android Studio</li>
-              <li>Kotlin (initiation)</li>
+              <li>Vite</li>
+              <li>Astro</li>
+              <li>Tailwind CSS</li>
+              <li>CSS Modules</li>
+              <li>Three.js / React Three Fiber</li>
+              <li>Responsive & accessibilité</li>
             </ul>
           </div>
 
           <div className="home-group">
-            <h3 className="home-h3">Données & Modélisation</h3>
+            <h3 className="home-h3">Données & architecture</h3>
             <ul className="home-badges">
-              <li>Dictionnaire de données</li>
-              <li>MCD/MLD</li>
-              <li>Looping</li>
-              <li>SQL • MySQL • MariaDB</li>
-              <li>HeidiSQL</li>
+              <li>PostgreSQL</li>
+              <li>MariaDB / MySQL</li>
+              <li>SQL</li>
+              <li>JPA / Hibernate</li>
+              <li>Active Record</li>
+              <li>Flyway / migrations Rails</li>
+              <li>Multi-tenant</li>
+              <li>RBAC</li>
+              <li>MCD / MLD</li>
             </ul>
           </div>
 
           <div className="home-group">
-            <h3 className="home-h3">Outils, IDE & DevOps</h3>
+            <h3 className="home-h3">Qualité & livraison</h3>
             <ul className="home-badges">
-              <li>Git</li>
-              <li>Git Bash</li>
-              <li>VS Code</li>
-              <li>Eclipse</li>
+              <li>RSpec</li>
+              <li>Vitest</li>
+              <li>Testing Library</li>
+              <li>ESLint</li>
+              <li>Git / GitHub</li>
+              <li>GitHub Actions</li>
+              <li>CI/CD</li>
               <li>Docker</li>
-              <li>Azure</li>
-              <li>Postman</li>
+              <li>OpenAPI / Postman</li>
+              <li>Documentation technique</li>
             </ul>
           </div>
 
           <div className="home-group">
-            <h3 className="home-h3">Archi & Paradigmes</h3>
+            <h3 className="home-h3">Produit & méthodes</h3>
             <ul className="home-badges">
-              <li>POO (SOLID)</li>
-              <li>MVC</li>
-              <li>REST • JWT</li>
-            </ul>
-          </div>
-
-          <div className="home-group">
-            <h3 className="home-h3">Méthodo & Qualité</h3>
-            <ul className="home-badges">
-              <li>Scrum</li>
-              <li>Jira</li>
-              <li>Clean Code</li>
-              <li>Tests & debug</li>
+              <li>Analyse du besoin métier</li>
+              <li>Architecture en couches</li>
+              <li>Sécurité applicative</li>
+              <li>Conformité Factur-X</li>
+              <li>Accessibilité</li>
+              <li>Performance web</li>
+              <li>SEO local</li>
+              <li>Scrum / travail itératif</li>
+              <li>Revue de code & dette technique</li>
             </ul>
           </div>
         </section>

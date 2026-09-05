@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title description">
+  <title id="title">Emblème Trajet Formateur</title>
+  <desc id="description">Deux repères reliés par une route entourent une horloge et une validation de faisabilité.</desc>
+  <defs>
+    <linearGradient id="tf-frame" x1="44" y1="31" x2="213" y2="225" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFB45C"/>
+      <stop offset="0.48" stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+    <linearGradient id="tf-glass" x1="65" y1="43" x2="194" y2="218" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2C2118"/>
+      <stop offset="0.5" stop-color="#121A21"/>
+      <stop offset="1" stop-color="#0B1815"/>
+    </linearGradient>
+    <linearGradient id="tf-route" x1="62" y1="77" x2="195" y2="181" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD08A"/>
+      <stop offset="0.5" stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#45D9A4"/>
+    </linearGradient>
+    <radialGradient id="tf-core" cx="0" cy="0" r="1" gradientTransform="translate(129 134) rotate(90) scale(82)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F59E0B" stop-opacity="0.18"/>
+      <stop offset="0.56" stop-color="#34D399" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#34D399" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="tf-tile-glow" x="4" y="0" width="248" height="256" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <filter id="tf-soft-glow" x="35" y="42" width="187" height="178" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+    <clipPath id="tf-clip">
+      <path d="M128 21 202 51 230 121 202 202 128 235 53 204 25 129 51 52Z"/>
+    </clipPath>
+  </defs>
+  <path d="M128 21 202 51 230 121 202 202 128 235 53 204 25 129 51 52Z" fill="none" stroke="#F59E0B" stroke-opacity="0.25" stroke-width="11" filter="url(#tf-tile-glow)"/>
+  <path d="M128 21 202 51 230 121 202 202 128 235 53 204 25 129 51 52Z" fill="url(#tf-glass)"/>
+  <path d="M128 21 202 51 230 121 202 202 128 235 53 204 25 129 51 52Z" fill="none" stroke="url(#tf-frame)" stroke-width="2.5"/>
+  <g clip-path="url(#tf-clip)">
+    <circle cx="129" cy="134" r="82" fill="url(#tf-core)"/>
+    <path d="M42 74 128 21 103 117Z" fill="#F59E0B" fill-opacity="0.052"/>
+    <path d="M214 74 128 21 153 117Z" fill="#FFB45C" fill-opacity="0.035"/>
+    <path d="M128 235 202 202 146 148Z" fill="#34D399" fill-opacity="0.052"/>
+    <path d="M128 235 53 204 110 148Z" fill="#F59E0B" fill-opacity="0.028"/>
+  </g>
+  <g opacity="0.34" filter="url(#tf-soft-glow)">
+    <path d="M67 79c7 31 31 35 48 52 20 20 12 43-10 57 28 14 62 7 82-16" fill="none" stroke="#F59E0B" stroke-width="15" stroke-linecap="round"/>
+    <circle cx="137" cy="132" r="39" fill="none" stroke="#FFB45C" stroke-width="10"/>
+    <path d="m163 181 12 12 25-31" fill="none" stroke="#34D399" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <path d="M67 79c7 31 31 35 48 52 20 20 12 43-10 57 28 14 62 7 82-16" fill="none" stroke="url(#tf-route)" stroke-width="9" stroke-linecap="round" stroke-dasharray="2 15"/>
+  <path d="M67 52c-15 0-27 12-27 27 0 20 27 48 27 48s27-28 27-48c0-15-12-27-27-27Z" fill="#F59E0B"/>
+  <circle cx="67" cy="79" r="10" fill="#FFF1D6"/>
+  <path d="M187 50c-14 0-25 11-25 25 0 19 25 45 25 45s25-26 25-45c0-14-11-25-25-25Z" fill="#34D399"/>
+  <circle cx="187" cy="75" r="9" fill="#D9FFF0"/>
+  <circle cx="137" cy="132" r="38" fill="#101B1F" stroke="#FFD08A" stroke-width="5"/>
+  <circle cx="137" cy="132" r="4" fill="#FFF4DF"/>
+  <path d="M137 107v25l18 11" fill="none" stroke="#FFF4DF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M137 99v5m33 28h-5m-28 33v-5m-33-28h5" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+  <path d="m163 181 12 12 25-31" fill="none" stroke="#6EE7B7" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="43" cy="143" r="2.5" fill="#FFB45C"/>
+  <circle cx="213" cy="136" r="2.5" fill="#34D399"/>
+  <circle cx="128" cy="218" r="2.5" fill="#F59E0B"/>
+</svg>

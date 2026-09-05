@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title description">
+  <title id="title">Emblème Vélocéan</title>
+  <desc id="description">Une roue traverse une vague lumineuse qui plonge vers les abysses.</desc>
+  <defs>
+    <linearGradient id="vo-frame" x1="47" y1="34" x2="211" y2="224" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="0.48" stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+    <linearGradient id="vo-glass" x1="62" y1="45" x2="192" y2="217" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#13263A"/>
+      <stop offset="0.52" stop-color="#081823"/>
+      <stop offset="1" stop-color="#061512"/>
+    </linearGradient>
+    <linearGradient id="vo-wave" x1="49" y1="105" x2="207" y2="139" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7DD3FC"/>
+      <stop offset="0.48" stop-color="#0EA5E9"/>
+      <stop offset="1" stop-color="#2DD4BF"/>
+    </linearGradient>
+    <linearGradient id="vo-dive" x1="179" y1="119" x2="144" y2="205" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67E8F9"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+    <radialGradient id="vo-core" cx="0" cy="0" r="1" gradientTransform="translate(128 129) rotate(90) scale(84)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8" stop-opacity="0.22"/>
+      <stop offset="0.55" stop-color="#0EA5E9" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#0EA5E9" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="vo-tile-glow" x="4" y="0" width="248" height="256" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <filter id="vo-soft-glow" x="30" y="72" width="198" height="153" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+    <clipPath id="vo-clip">
+      <path d="M128 21 202 51 230 121 202 202 128 235 53 204 25 129 51 52Z"/>
+    </clipPath>
+  </defs>
+  <path d="M128 21 202 51 230 121 202 202 128 235 53 204 25 129 51 52Z" fill="none" stroke="#22D3EE" stroke-opacity="0.25" stroke-width="11" filter="url(#vo-tile-glow)"/>
+  <path d="M128 21 202 51 230 121 202 202 128 235 53 204 25 129 51 52Z" fill="url(#vo-glass)"/>
+  <path d="M128 21 202 51 230 121 202 202 128 235 53 204 25 129 51 52Z" fill="none" stroke="url(#vo-frame)" stroke-width="2.5"/>
+  <g clip-path="url(#vo-clip)">
+    <circle cx="128" cy="129" r="84" fill="url(#vo-core)"/>
+    <path d="M42 76 128 21 104 116Z" fill="#38BDF8" fill-opacity="0.05"/>
+    <path d="M214 75 128 21 151 116Z" fill="#22D3EE" fill-opacity="0.045"/>
+    <path d="M128 235 202 202 150 148Z" fill="#34D399" fill-opacity="0.05"/>
+    <path d="M128 235 53 204 109 147Z" fill="#0EA5E9" fill-opacity="0.035"/>
+  </g>
+  <g fill="none" stroke="#7DD3FC" stroke-opacity="0.35" filter="url(#vo-soft-glow)">
+    <circle cx="78" cy="132" r="29" stroke-width="10"/>
+    <path d="M47 121c28-28 51-29 78-5 24 22 48 22 82-10" stroke-width="17" stroke-linecap="round"/>
+    <path d="M181 119c2 27-7 44-28 58-12 8-12 20 2 29" stroke-width="15" stroke-linecap="round"/>
+  </g>
+  <circle cx="78" cy="132" r="28" fill="none" stroke="#A5E4FF" stroke-width="6"/>
+  <circle cx="78" cy="132" r="6" fill="#E0F7FF"/>
+  <g stroke="#A5E4FF" stroke-width="3" stroke-linecap="round">
+    <path d="M78 107v19"/>
+    <path d="m57 120 16 9"/>
+    <path d="m58 145 15-9"/>
+    <path d="M78 157v-19"/>
+    <path d="m99 145-16-9"/>
+    <path d="m99 120-16 9"/>
+  </g>
+  <path d="M47 121c28-28 51-29 78-5 24 22 48 22 82-10" fill="none" stroke="url(#vo-wave)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M55 145c28-17 48-16 70 1 21 16 40 15 63-1" fill="none" stroke="#38BDF8" stroke-opacity="0.68" stroke-width="5" stroke-linecap="round"/>
+  <path d="M181 119c2 27-7 44-28 58-12 8-12 20 2 29" fill="none" stroke="url(#vo-dive)" stroke-width="10" stroke-linecap="round"/>
+  <path d="m145 200 10 7 8-11" fill="none" stroke="#9AF2D0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="189" cy="81" r="5" fill="#7DD3FC"/>
+  <circle cx="202" cy="68" r="3" fill="#BAE6FD"/>
+  <circle cx="207" cy="91" r="2.5" fill="#22D3EE"/>
+  <circle cx="43" cy="91" r="2.5" fill="#38BDF8"/>
+  <circle cx="128" cy="218" r="2.5" fill="#34D399"/>
+</svg>

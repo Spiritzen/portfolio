@@ -1,0 +1,163 @@
+/* src/pages/Velocean.css
+   Styles strictement nécessaires à la page Vélocéan — le reste réutilise
+   les classes .home-* déjà définies dans Home.css (home-card, home-span-2,
+   home-video-wrap/home-video-local, home-badges, home-bullets, home-chip,
+   status-pill…). Classes locales préfixées "vel-" pour éviter toute
+   régression sur les autres pages. */
+
+/* ── Emblème du hero — local à cette page (palette cyan/émeraude propre
+   à Vélocéan, distincte du halo rose de Vitrines locales) ── */
+.vel-avatar-emblem {
+  width: 120px;
+  height: 120px;
+  display: block;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.35));
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .home-avatar-link:hover .vel-avatar-emblem {
+    transform: scale(1.04);
+    filter: drop-shadow(0 0 16px rgba(34, 211, 238, 0.55));
+  }
+}
+@media (max-width: 768px) {
+  .vel-avatar-emblem { width: 92px; height: 92px; }
+}
+
+/* ══ CARTE DE DÉMONSTRATION — premier écran ══ */
+.vel-demo-grid {
+  display: grid;
+  /* Vidéo ~65 % / pitch+actions ~35 %, dans la fourchette demandée
+     (62–68 % / 32–38 %). */
+  grid-template-columns: minmax(0, 65%) 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.vel-demo-media .home-video-wrap {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.vel-demo-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.vel-demo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+/* Les CTA du bloc démo ne doivent pas hériter du margin-left:auto pensé
+   pour le CTA du header. */
+.vel-demo-actions .home-cta {
+  margin-left: 0;
+}
+
+/* Quatre preuves ultra-compactes (labels, pas de phrases) */
+.vel-proof-chips {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.vel-proof-chips li {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.22);
+  color: #a5e4ff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 900px) {
+  .vel-demo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ══ TROIS PREUVES COURTES ══ */
+.vel-proofs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.vel-proof-card {
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 16px 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+}
+.vel-proof-card p {
+  margin: 6px 0 0;
+  color: #ccd0d8;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* ══ STACK — bande compacte (pas de grand panneau vide) ══ */
+.vel-stack-band {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 4px 4px;
+}
+.vel-stack-label {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--muted);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.vel-stack-band .home-badges {
+  margin: 0;
+}
+
+/* ══ SOUS LE CAPOT — details/summary repliable ══ */
+.vel-details-summary {
+  cursor: pointer;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2.6vw, 1.35rem);
+  color: #eef2f7;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.vel-details-summary::-webkit-details-marker {
+  display: none;
+}
+.vel-details-summary::before {
+  content: "▸";
+  color: var(--accent);
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+.vel-details[open] .vel-details-summary::before {
+  transform: rotate(90deg);
+}
+.vel-details-summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vel-avatar-emblem,
+  .vel-details-summary::before {
+    transition: none;
+  }
+}

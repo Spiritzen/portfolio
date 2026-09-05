@@ -1,0 +1,98 @@
+/* src/pages/VitrinesLocales.css
+   Styles strictement nécessaires à la page Vitrines locales — le reste
+   réutilise les classes .home-* déjà définies dans Home.css. */
+
+.vl-grid {
+  display: grid;
+  /* ✅ Composition 2×2 volontaire pour 4 cartes (demande explicite) : deux
+     colonnes fixes sur desktop, jamais 4 cartes étroites sur une ligne.
+     Repasse à une colonne unique en tablette étroite / mobile ci-dessous. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .vl-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.vl-card {
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+}
+.vl-card:hover {
+  border-color: var(--vl-accent, rgba(212, 175, 55, 0.4));
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Lien enveloppant la capture (Nolya / Beauty Laï uniquement) — la capture
+   elle-même reste sans bordure propre, le cadre visuel vient de l'image. */
+.vl-card-img-link {
+  display: block;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.vl-card-img-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.vl-card-img {
+  width: 100%;
+  /* ✅ height:auto est nécessaire ici : les attributs HTML width/height
+     (natifs, différents par image) fixent sinon une hauteur figée en px
+     qui empêche aspect-ratio de recalculer la hauteur depuis la largeur. */
+  height: auto;
+  /* ✅ Ratio cohérent entre les 3 cartes malgré des captures sources de
+     ratios différents (object-fit: cover recadre proprement). */
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  display: block;
+  transition: transform 0.3s ease;
+}
+/* La capture n'a de marge propre que hors lien (le lien porte déjà la marge). */
+img.vl-card-img {
+  margin-top: 10px;
+}
+.vl-card-img-link .vl-card-img {
+  margin-top: 0;
+}
+
+/* Survol léger — uniquement sur les captures réellement cliquables,
+   pour ne pas suggérer une interactivité inexistante (La Vraie Baguette). */
+@media (hover: hover) and (pointer: fine) {
+  .vl-card-img-link:hover .vl-card-img {
+    transform: scale(1.02);
+  }
+}
+
+.vl-card-title {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 0 6px;
+  color: #eef2f7;
+}
+
+.vl-card-desc {
+  color: #ccd0d8;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+.vl-card-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}

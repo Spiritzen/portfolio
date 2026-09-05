@@ -110,6 +110,37 @@
   text-decoration: underline;
 }
 
+/* ── Statut "hors ligne" — sobre, non cliquable, aucun rôle de lien ── */
+.aos-status-offline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.10);
+  border: 1px solid rgba(148, 163, 184, 0.30);
+  color: #cbd5e1;
+  font-weight: 600;
+  font-size: 0.92rem;
+  width: fit-content;
+  align-self: center;
+}
+.aos-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #94a3b8;
+  flex-shrink: 0;
+}
+.aos-status-note {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin: 8px 0 0;
+}
+
 /* ══════════════════════════════════════
    HOVER CARDS — DA AgencyOS
    violet · vert · orange selon le contenu
@@ -193,215 +224,28 @@
   }
 }
 
-/* ── Titre cliquable AgencyOS ── */
-.aos-title-link {
-  background: linear-gradient(90deg, #7c3aed, #a78bfa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-  display: inline-block;
-}
-.aos-title-link:hover {
-  opacity: 0.82;
-}
-.aos-title-link:focus-visible {
-  outline: 2px solid #7c3aed;
-  outline-offset: 4px;
-  border-radius: 4px;
-}
-
-/* ── Image screenshot cliquable ── */
-.aos-screenshot-link {
-  display: block;
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* Overlay au hover — "Voir la plateforme" */
-.aos-screenshot-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(124, 58, 237, 0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 12px;
-  backdrop-filter: blur(2px);
-}
-.aos-screenshot-link:hover .aos-screenshot-overlay {
-  opacity: 1;
-}
-.aos-screenshot-link:focus-visible .aos-screenshot-overlay {
-  opacity: 1;
-}
-
-.aos-screenshot-cta {
-  color: #fff;
-  font-family: var(--font-title, "Space Grotesk", system-ui);
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  padding: 12px 24px;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  border-radius: 999px;
-  background: rgba(124, 58, 237, 0.35);
-  backdrop-filter: blur(4px);
-  pointer-events: none;
-}
-
-/* ── Badge "En production" sous l'image ── */
-.aos-live-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 10px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  background: rgba(124, 58, 237, 0.12);
-  border: 1px solid rgba(124, 58, 237, 0.40);
-  color: #c4b5fd;
-  font-weight: 600;
-  font-size: 0.92rem;
-  text-decoration: none;
-  transition: background 0.25s ease, border-color 0.25s ease,
-              transform 0.15s ease, box-shadow 0.3s ease;
-  width: fit-content;
-  align-self: center;
-}
-.aos-live-badge:hover {
-  background: rgba(124, 58, 237, 0.22);
-  border-color: rgba(124, 58, 237, 0.65);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.22);
-  color: #e9d5ff;
-}
-.aos-live-badge:focus-visible {
-  outline: 2px solid #7c3aed;
-  outline-offset: 3px;
-}
-
-/* Point vert animé "live" */
-.aos-live-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #10b981;
-  flex-shrink: 0;
-  position: relative;
-}
-.aos-live-dot::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: #10b981;
-  animation: aos-pulse 2.5s ease-out infinite;
-}
-@keyframes aos-pulse {
-  0%   { transform: scale(1);   opacity: 0.6; }
-  70%  { transform: scale(2.6); opacity: 0;   }
-  100% { transform: scale(2.6); opacity: 0;   }
-}
-
-.aos-live-arrow {
-  font-size: 1rem;
-  transition: transform 0.2s ease;
-}
-.aos-live-badge:hover .aos-live-arrow {
-  transform: translateX(3px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .aos-live-dot::after {
-    animation: none;
-  }
-  .aos-screenshot-overlay,
-  .aos-live-badge,
-  .aos-live-arrow {
-    transition: none;
-  }
-}
-
-/* ── Roadmap V2 ── */
-.aos-card-roadmap.home-card:hover {
+/* ── État du produit ── */
+.aos-card-status.home-card:hover {
   border-color: rgba(245, 158, 11, 0.40);
   box-shadow: 0 12px 32px rgba(245, 158, 11, 0.14);
   transform: translateY(-2px);
 }
 
-.aos-roadmap-grid {
+.aos-status-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
   margin-top: 4px;
 }
 
-.aos-roadmap-col {
+.aos-status-col {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.aos-checklist {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-
-.aos-checklist li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.88rem;
-  line-height: 1.4;
-  padding-left: 2px;
-}
-
-.aos-checklist li::before {
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  font-weight: 700;
-}
-
-/* Fait — vert ✓ */
-.aos-check-done {
-  color: #94a3b8;
-}
-.aos-check-done::before {
-  content: "✓";
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.35);
-  color: #10b981;
-}
-
-/* À faire — violet □ */
-.aos-check-todo {
-  color: #64748b;
-}
-.aos-check-todo::before {
-  content: "";
-  background: rgba(124, 58, 237, 0.08);
-  border: 1px solid rgba(124, 58, 237, 0.25);
-}
-
 @media (max-width: 640px) {
-  .aos-roadmap-grid {
+  .aos-status-grid {
     grid-template-columns: 1fr;
   }
 }

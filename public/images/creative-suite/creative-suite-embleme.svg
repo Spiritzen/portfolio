@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title description">
+  <title id="title">Emblème Creative Suite</title>
+  <desc id="description">Trois rubans lumineux représentant l’audio, le design et l’animation convergent vers une étincelle créative.</desc>
+  <defs>
+    <linearGradient id="cs-frame" x1="43" y1="31" x2="215" y2="226" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9B6DFF"/>
+      <stop offset="0.48" stop-color="#35D7A0"/>
+      <stop offset="1" stop-color="#F6C453"/>
+    </linearGradient>
+    <linearGradient id="cs-glass" x1="64" y1="42" x2="194" y2="218" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#221936"/>
+      <stop offset="0.5" stop-color="#101923"/>
+      <stop offset="1" stop-color="#10130F"/>
+    </linearGradient>
+    <linearGradient id="cs-audio" x1="65" y1="67" x2="119" y2="131" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C6A8FF"/>
+      <stop offset="1" stop-color="#8054F6"/>
+    </linearGradient>
+    <linearGradient id="cs-design" x1="191" y1="67" x2="137" y2="131" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AF0C2"/>
+      <stop offset="1" stop-color="#20B984"/>
+    </linearGradient>
+    <linearGradient id="cs-motion" x1="128" y1="202" x2="128" y2="137" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE49A"/>
+      <stop offset="1" stop-color="#E7A923"/>
+    </linearGradient>
+    <radialGradient id="cs-core" cx="0" cy="0" r="1" gradientTransform="translate(128 130) rotate(90) scale(74)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.16"/>
+      <stop offset="0.42" stop-color="#9B6DFF" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#35D7A0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="cs-tile-glow" x="4" y="0" width="248" height="256" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <filter id="cs-ribbon-glow" x="42" y="41" width="172" height="187" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+    <clipPath id="cs-clip">
+      <path d="M128 21 202 51 230 121 202 202 128 235 53 204 25 129 51 52Z"/>
+    </clipPath>
+  </defs>
+  <path d="M128 21 202 51 230 121 202 202 128 235 53 204 25 129 51 52Z" fill="none" stroke="#8F63F8" stroke-opacity="0.24" stroke-width="11" filter="url(#cs-tile-glow)"/>
+  <path d="M128 21 202 51 230 121 202 202 128 235 53 204 25 129 51 52Z" fill="url(#cs-glass)"/>
+  <path d="M128 21 202 51 230 121 202 202 128 235 53 204 25 129 51 52Z" fill="none" stroke="url(#cs-frame)" stroke-width="2.5"/>
+  <g clip-path="url(#cs-clip)">
+    <circle cx="128" cy="130" r="75" fill="url(#cs-core)"/>
+    <path d="M42 70 128 21 103 116Z" fill="#9B6DFF" fill-opacity="0.055"/>
+    <path d="M214 69 128 21 153 116Z" fill="#35D7A0" fill-opacity="0.055"/>
+    <path d="M128 235 54 204 112 146Z" fill="#F6C453" fill-opacity="0.05"/>
+    <path d="M128 235 202 202 144 146Z" fill="#35D7A0" fill-opacity="0.025"/>
+  </g>
+  <g opacity="0.34" filter="url(#cs-ribbon-glow)" fill="none" stroke-linecap="round">
+    <path d="M67 73c6 30 22 48 51 56" stroke="#9B6DFF" stroke-width="19"/>
+    <path d="M189 73c-6 30-22 48-51 56" stroke="#35D7A0" stroke-width="19"/>
+    <path d="M128 199c-23-18-27-42-10-62" stroke="#F6C453" stroke-width="19"/>
+  </g>
+  <path d="M67 73c6 30 22 48 51 56" fill="none" stroke="url(#cs-audio)" stroke-width="13" stroke-linecap="round"/>
+  <path d="M189 73c-6 30-22 48-51 56" fill="none" stroke="url(#cs-design)" stroke-width="13" stroke-linecap="round"/>
+  <path d="M128 199c-23-18-27-42-10-62" fill="none" stroke="url(#cs-motion)" stroke-width="13" stroke-linecap="round"/>
+  <path d="m128 111 7 12 13 7-13 7-7 13-7-13-13-7 13-7Z" fill="#F8FAFC"/>
+  <path d="m128 118 4 8 8 4-8 4-4 8-4-8-8-4 8-4Z" fill="#FFE08A"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M77 56v11m7-16v16m7-9v9" stroke="#C6A8FF" stroke-width="3"/>
+    <path d="M165 58h22M176 52v22" stroke="#7AF0C2" stroke-width="3"/>
+    <path d="m116 207 12 7 12-7" stroke="#FFE49A" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+  <circle cx="43" cy="119" r="2.5" fill="#9B6DFF"/>
+  <circle cx="213" cy="142" r="2.5" fill="#35D7A0"/>
+  <circle cx="128" cy="220" r="2.5" fill="#F6C453"/>
+</svg>

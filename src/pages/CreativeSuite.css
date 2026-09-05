@@ -3,13 +3,20 @@
    Ce fichier ne contient QUE les styles propres à CreativeSuite.
    Tous les composants communs (home-page, home-hero, home-card,
    home-badges, home-contact, home-footer…) viennent de Home.css.
+
+   Harmonisation avec Vitrines locales (conteneur, rythme, rayons) tout en
+   préservant l'identité propre de la page : trois logiciels en lignes
+   horizontales (et non une grille de petites cartes), accents violet /
+   émeraude / or par logiciel.
 */
 
-/* ══ MAIN GRID ══ */
+/* ══ MAIN GRID ══
+   Même largeur et même rythme vertical que .home-main (Vitrines locales,
+   Home…) : max-width 1200px, gap 24px. */
 .cs-main {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 32px;
+  gap: 24px;
   max-width: 1200px;
   margin-inline: auto;
   padding: 0 16px 64px;
@@ -17,74 +24,35 @@
   z-index: 3;
 }
 
-/* ══ INTRO ══ */
-.cs-intro {
-  text-align: center;
-  padding: 8px 0 4px;
+/* ══ Emblème du hero — local à cette page ══
+   Même principe que l'emblème facetté de Vitrines locales (portail
+   polygonal + halo au survol), avec la palette propre à Creative Suite
+   (violet BeatStudio / émeraude EasyStudio / or MotionStudio). */
+.cs-avatar-emblem {
+  width: 120px;
+  height: 120px;
+  display: block;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 10px rgba(155, 109, 255, 0.35));
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .home-avatar-link:hover .cs-avatar-emblem {
+    transform: scale(1.04);
+    filter: drop-shadow(0 0 16px rgba(155, 109, 255, 0.55));
+  }
+}
+@media (max-width: 768px) {
+  .cs-avatar-emblem { width: 92px; height: 92px; }
 }
 
-.cs-section-title {
-  font-family: var(--font-title, "Space Grotesk", system-ui);
-  font-size: clamp(1.8rem, 5vw, 2.6rem);
-  font-weight: 700;
-  color: #eef2f7;
-  margin: 0 0 10px;
-  letter-spacing: 0.3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-
-.cs-title-star {
-  color: var(--accent, #d4af37);
-}
-
-.cs-section-sub {
-  color: #a8b0c0;
-  font-size: clamp(0.95rem, 2vw, 1.05rem);
-  line-height: 1.7;
-  max-width: 620px;
-  margin: 0 auto 18px;
-}
-
-/* Chips colorés (Audio / Design / Animation) */
-.cs-suite-chips {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.cs-suite-chip {
-  padding: 5px 14px;
-  border-radius: 999px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-}
-
-.cs-chip-purple {
-  background: rgba(167, 139, 250, 0.12);
-  color: #c4b5fd;
-  border: 1px solid rgba(167, 139, 250, 0.28);
-}
-.cs-chip-teal {
-  background: rgba(52, 211, 153, 0.12);
-  color: #6ee7b7;
-  border: 1px solid rgba(52, 211, 153, 0.28);
-}
-.cs-chip-amber {
-  background: rgba(251, 191, 36, 0.12);
-  color: #fcd34d;
-  border: 1px solid rgba(251, 191, 36, 0.28);
-}
-
-/* ══ CARD PROJET ══ */
+/* ══ CARD LOGICIEL — ligne horizontale (desktop) ══ */
 .cs-card {
   display: grid;
-  grid-template-columns: 400px 1fr;
-  border-radius: 20px;
+  /* Capture ~38 % / informations ~62 %, dans la fourchette 34–40 %
+     demandée, en pourcentage plutôt qu'en pixels fixes. */
+  grid-template-columns: minmax(0, 38%) 1fr;
+  border-radius: 18px; /* aligné sur .home-card (Vitrines locales, Home…) */
   border: 1px solid rgba(255, 255, 255, 0.07);
   background: linear-gradient(
     180deg,
@@ -102,23 +70,35 @@
   transform: translateY(-3px);
 }
 
-/* Image */
+/* Zone média : capture + bouton "Tester la démo live" juste dessous */
+.cs-card-media {
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.12);
+}
+
 .cs-card-img-wrap {
   position: relative;
   overflow: hidden;
-  min-height: 260px;
+  min-height: 220px;
 }
 
 .cs-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease;
 }
 
-.cs-card:hover .cs-card-img {
-  transform: scale(1.04);
+/* Survol subtil (cohérent avec Vitrines locales : scale 1.02, pas de zoom
+   agressif) déclenché sur la carte entière plutôt que sur l'image seule,
+   la capture n'étant pas elle-même un lien ici. */
+@media (hover: hover) and (pointer: fine) {
+  .cs-card:hover .cs-card-img {
+    transform: scale(1.02);
+  }
 }
 
 .cs-card-img-overlay {
@@ -129,6 +109,33 @@
     transparent 55%,
     rgba(10, 12, 18, 0.9) 100%
   );
+}
+
+/* Bouton démo — sous la capture, dans la colonne média */
+.cs-cta-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 12px 16px 16px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--cs-accent, #d4af37) 12%, transparent);
+  color: var(--cs-accent, #d4af37);
+  border: 1px solid color-mix(in srgb, var(--cs-accent, #d4af37) 32%, transparent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.25s ease, border-color 0.25s ease,
+    transform 0.15s ease, box-shadow 0.3s ease;
+}
+
+.cs-cta-demo:hover {
+  background: color-mix(in srgb, var(--cs-accent, #d4af37) 22%, transparent);
+  border-color: color-mix(in srgb, var(--cs-accent, #d4af37) 55%, transparent);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px
+    color-mix(in srgb, var(--cs-accent, #d4af37) 16%, transparent);
 }
 
 /* Body */
@@ -231,37 +238,13 @@
   opacity: 0.85;
 }
 
-/* CTA buttons */
+/* CTA GitHub — tout en bas de la zone informations */
 .cs-ctas {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
   margin-top: auto;
   padding-top: 8px;
-}
-
-.cs-cta-demo {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--cs-accent, #d4af37) 12%, transparent);
-  color: var(--cs-accent, #d4af37);
-  border: 1px solid color-mix(in srgb, var(--cs-accent, #d4af37) 32%, transparent);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: background 0.25s ease, border-color 0.25s ease,
-    transform 0.15s ease, box-shadow 0.3s ease;
-}
-
-.cs-cta-demo:hover {
-  background: color-mix(in srgb, var(--cs-accent, #d4af37) 22%, transparent);
-  border-color: color-mix(in srgb, var(--cs-accent, #d4af37) 55%, transparent);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px
-    color-mix(in srgb, var(--cs-accent, #d4af37) 16%, transparent);
 }
 
 .cs-cta-gh {
@@ -285,7 +268,9 @@
   transform: translateY(-1px);
 }
 
-/* ══ RESPONSIVE ══ */
+/* ══ RESPONSIVE ══
+   Sous 960px : chaque logiciel redevient une carte verticale — capture,
+   démo, puis contenu, dans cet ordre (déjà l'ordre du DOM). */
 @media (max-width: 960px) {
   .cs-card {
     grid-template-columns: 1fr;
@@ -320,25 +305,15 @@
 }
 
 @media (max-width: 428px) {
-  .cs-section-title {
-    font-size: 1.7rem;
-    gap: 8px;
-  }
-
-  .cs-ctas {
-    flex-direction: column;
-  }
-
-  .cs-cta-demo,
-  .cs-cta-gh {
-    justify-content: center;
-    text-align: center;
+  .cs-cta-demo {
+    margin: 10px 12px 14px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .cs-card,
   .cs-card-img,
+  .cs-avatar-emblem,
   .cs-cta-demo,
   .cs-cta-gh {
     transition: none;

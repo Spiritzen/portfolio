@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Carousel from "../components/Carousel.jsx";
+import { getAgencyOSSlides } from "../data/dataAgencyOSSlides.js";
 import "./Home.css";
 import "./AgencyOS.css";
 
@@ -7,6 +9,7 @@ export default function AgencyOS() {
   const [loaded, setLoaded] = useState(false);
   useEffect(() => setLoaded(true), []);
   const base = import.meta.env.BASE_URL;
+  const slides = getAgencyOSSlides(base);
 
   return (
     <div className={`home-page theme-ink-marble ${loaded ? "home-fade-in" : ""}`}>
@@ -22,16 +25,7 @@ export default function AgencyOS() {
 
           <div className="home-hero-info">
             <h1 className="home-title">
-              <a
-                href="https://agencyos.fr"
-                target="_blank"
-                rel="noreferrer"
-                className="aos-title-link"
-                aria-label="Ouvrir AgencyOS en ligne"
-                title="agencyos.fr"
-              >
-                AgencyOS
-              </a>
+              <span className="aos-title">AgencyOS</span>
             </h1>
             <span className="home-tag">Plateforme SaaS multi-tenant</span>
             <p className="home-subtitle">
@@ -49,7 +43,7 @@ export default function AgencyOS() {
 
         {/* HERO CARD — image + récap côte à côte */}
         <section className="home-card aos-hero-card">
-          <h2 className="home-h2">Plateforme en production</h2>
+          <h2 className="home-h2">Plateforme SaaS déployée en production</h2>
 
           <div className="aos-layout">
             {/* GAUCHE — résumé technique */}
@@ -79,43 +73,32 @@ export default function AgencyOS() {
 
             {/* DROITE — screenshot */}
             <div className="aos-img-wrap">
-              <a
-                href="https://agencyos.fr"
-                target="_blank"
-                rel="noreferrer"
-                className="aos-screenshot-link"
-                aria-label="Voir AgencyOS en ligne sur agencyos.fr"
-                title="Ouvrir agencyos.fr"
-              >
-                <img
-                  src={`${base}images/agencyos.jpg`}
-                  alt="Interface AgencyOS — dashboard"
-                  className="aos-screenshot"
-                  width="700"
-                  height="440"
-                  loading="lazy"
-                />
-                <div className="aos-screenshot-overlay">
-                  <span className="aos-screenshot-cta">
-                    🌐 Voir la plateforme en ligne
-                  </span>
-                </div>
-              </a>
+              <img
+                src={`${base}images/agencyos.jpg`}
+                alt="Interface AgencyOS — dashboard"
+                className="aos-screenshot"
+                width="700"
+                height="440"
+                loading="lazy"
+              />
 
-              <a
-                href="https://agencyos.fr"
-                target="_blank"
-                rel="noreferrer"
-                className="aos-live-badge"
-                aria-label="Accéder à agencyos.fr"
-              >
-                <span className="aos-live-dot" aria-hidden="true"></span>
-                En production sur agencyos.fr
-                <span className="aos-live-arrow" aria-hidden="true">→</span>
-              </a>
+              <span className="aos-status-offline">
+                <span className="aos-status-dot" aria-hidden="true"></span>
+                Démonstration temporairement hors ligne
+              </span>
+
+              <p className="aos-status-note">
+                AgencyOS a été déployé sur un VPS Linux sécurisé en HTTPS.
+                L'hébergement public est actuellement suspendu ; les captures
+                ci-dessous présentent la dernière version opérationnelle de
+                la plateforme.
+              </p>
             </div>
           </div>
         </section>
+
+        {/* CAPTURES COMMENTÉES — même carrousel qu'Ink Red Plumes / MyDashServ */}
+        <Carousel slides={slides} />
 
         {/* POURQUOI */}
         <section className="home-card aos-span-2 aos-card-why">
@@ -203,51 +186,34 @@ export default function AgencyOS() {
           </ul>
         </section>
 
-        {/* ══ ROADMAP V2 ══ */}
-        <section className="home-card aos-span-2 aos-card-roadmap">
-          <h2 className="home-h2">Roadmap V2 — De "ça fonctionne" à "ça se vend"</h2>
+        {/* ══ ÉTAT DU PRODUIT ══ */}
+        <section className="home-card aos-span-2 aos-card-status">
+          <h2 className="home-h2">État du produit</h2>
 
-          <p style={{ color: "#94a3b8", marginTop: 8, marginBottom: 16 }}>
-            V1 est en production. V2 transforme le MVP en produit SaaS
-            testable, sécurisé et monétisable.
-          </p>
+          <div className="aos-status-grid">
 
-          <div className="aos-roadmap-grid">
-
-            <div className="aos-roadmap-col">
-              <h3 className="home-h3">🔐 Stabilisation</h3>
-              <ul className="aos-checklist">
-                <li className="aos-check-done">Responsive complet</li>
-                <li className="aos-check-done">Sécurité renforcée (JWT HttpOnly)</li>
-                <li className="aos-check-todo">Monitoring serveur</li>
-                <li className="aos-check-todo">Backup automatique</li>
+            <div className="aos-status-col">
+              <h3 className="home-h3">Réalisé</h3>
+              <ul className="home-bullets">
+                <li>Architecture SaaS multi-tenant et isolation des données par organisation</li>
+                <li>Authentification JWT HttpOnly et gestion des rôles</li>
+                <li>CRM clients et contacts</li>
+                <li>Gestion des projets, tâches et temps passé</li>
+                <li>Devis, factures, paiements, dépenses et reporting financier</li>
+                <li>Gestion des équipes, invitations et portail collaboratif</li>
+                <li>Déploiement Docker, CI/CD et HTTPS déjà expérimentés en conditions réelles</li>
+                <li>Automatisations métier et intégration d'un assistant IA</li>
               </ul>
             </div>
 
-            <div className="aos-roadmap-col">
-              <h3 className="home-h3">🧪 Démo libre</h3>
-              <ul className="aos-checklist">
-                <li className="aos-check-todo">Bouton "Tester la démo"</li>
-                <li className="aos-check-todo">Données automatiques</li>
-                <li className="aos-check-todo">Expiration 24h</li>
-              </ul>
-            </div>
-
-            <div className="aos-roadmap-col">
-              <h3 className="home-h3">💳 Monétisation</h3>
-              <ul className="aos-checklist">
-                <li className="aos-check-todo">Plans FREE / PRO / BUSINESS</li>
-                <li className="aos-check-todo">Intégration Stripe</li>
-                <li className="aos-check-todo">Gestion abonnements</li>
-              </ul>
-            </div>
-
-            <div className="aos-roadmap-col">
-              <h3 className="home-h3">🤖 IA & Automatisation</h3>
-              <ul className="aos-checklist">
-                <li className="aos-check-todo">Résumé projet IA (Claude API)</li>
-                <li className="aos-check-todo">Relances automatiques (n8n)</li>
-                <li className="aos-check-todo">Analytics usage</li>
+            <div className="aos-status-col">
+              <h3 className="home-h3">Prochaines étapes</h3>
+              <ul className="home-bullets">
+                <li>Migration vers une nouvelle infrastructure d'hébergement</li>
+                <li>Environnement de démonstration réinitialisable et isolé</li>
+                <li>Monitoring applicatif et sauvegardes automatisées</li>
+                <li>Plans d'abonnement, paiement Stripe et gestion des souscriptions</li>
+                <li>Observabilité et analyse de l'utilisation</li>
               </ul>
             </div>
 
@@ -296,16 +262,6 @@ export default function AgencyOS() {
             <li>
               <a className="home-chip" href={`${base}cv.pdf`} download>
                 📄&nbsp;CV (PDF)
-              </a>
-            </li>
-            <li>
-              <a
-                className="home-chip"
-                href="https://agencyos.fr"
-                target="_blank"
-                rel="noreferrer"
-              >
-                🌐&nbsp;agencyos.fr
               </a>
             </li>
             <li>

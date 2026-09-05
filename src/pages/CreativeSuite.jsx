@@ -14,6 +14,8 @@ const projects = [
     demo: "https://spiritzen.github.io/BeatStudio/",
     github: "https://github.com/Spiritzen/BeatStudio",
     image: "beatstudiopiano.jpg",
+    imageWidth: 1871,
+    imageHeight: 999,
     badge: "React · TypeScript · Tone.js",
     badgeClass: "cs-badge-purple",
     features: [
@@ -35,6 +37,8 @@ const projects = [
     demo: "https://spiritzen.github.io/EasyStudio/",
     github: "https://github.com/Spiritzen/EasyStudio",
     image: "easystudio.jpg",
+    imageWidth: 1875,
+    imageHeight: 998,
     badge: "React · TypeScript · Fabric.js",
     badgeClass: "cs-badge-teal",
     features: [
@@ -56,6 +60,8 @@ const projects = [
     demo: "https://spiritzen.github.io/MotionStudio/",
     github: "https://github.com/Spiritzen/MotionStudio",
     image: "MotionStudioPreview.jpg",
+    imageWidth: 1879,
+    imageHeight: 1003,
     badge: "React · TypeScript · GSAP",
     badgeClass: "cs-badge-amber",
     features: [
@@ -80,32 +86,28 @@ export default function CreativeSuite() {
       id="top"
       className={`home-page theme-ink-marble ${loaded ? "home-fade-in" : ""}`}
     >
-      {/* ══ HEADER — identique à Home ══ */}
+      {/* ══ HERO — même famille que Vitrines locales (emblème dédié,
+          pas le bloc d'identité "Sébastien Cantrelle / Open to work") ══ */}
       <header className="home-hero">
         <div className="home-hero-row">
-          <Link to="/" style={{ borderRadius: "50%", display: "inline-block", flexShrink: 0 }}>
+          <Link to="/" className="home-avatar-link" aria-label="Retour à l'accueil">
             <img
-              className="home-avatar"
-              src={`${base}images/avatar.jpg`}
-              alt="Sébastien Cantrelle — retour accueil"
+              className="cs-avatar-emblem"
+              src={`${base}images/creative-suite/creative-suite-embleme.svg`}
+              alt=""
               width="120"
               height="120"
             />
           </Link>
 
           <div className="home-hero-info">
-            <h1 className="home-title">
-              Sébastien Cantrelle
-              <span className="home-open-to-work">
-                <span className="home-otw-dot" aria-hidden="true"></span>
-                Open to work
-              </span>
-            </h1>
-            <span className="home-tag">Fullstack Java / Spring / React</span>
-            <p className="home-subtitle">Développeur Full-stack & Artiste 2D/3D</p>
+            <h1 className="home-title">Creative Suite</h1>
+            <span className="home-tag">Audio · Design · Animation</span>
+            <p className="home-subtitle">
+              Trois outils créatifs open source, directement dans le navigateur.
+            </p>
           </div>
 
-          {/* CTA → retour portfolio */}
           <Link className="home-cta" to="/">
             ← Portfolio
           </Link>
@@ -115,40 +117,55 @@ export default function CreativeSuite() {
       {/* ══ MAIN ══ */}
       <main className="cs-main">
 
-        {/* Titre de section */}
-        <div className="cs-intro home-span-2">
-          <h2 className="cs-section-title">
-            <span className="cs-title-star" aria-hidden="true">✦</span>
-            Creative Suite
-          </h2>
-          <p className="cs-section-sub">
-            Trois outils open source 100&nbsp;% navigateur — zéro serveur, zéro
-            installation. Chacun autonome, ensemble une suite de création complète.
+        {/* ══ PANNEAU INTRODUCTIF — langage visuel de Vitrines locales ══ */}
+        <section className="home-card home-span-2">
+          <h2 className="home-h2">Trois outils, un même atelier créatif</h2>
+          <p style={{ marginTop: 8, color: "#ccd0d8", lineHeight: 1.7 }}>
+            Creative Suite rassemble trois applications autonomes pensées pour
+            expérimenter la création directement dans le navigateur : composer
+            avec BeatStudio, produire des visuels avec EasyStudio et construire
+            des animations avec MotionStudio. Chaque outil possède son propre
+            univers, tout en partageant une même exigence de fluidité, de
+            contrôle et d'accessibilité — open source, sans serveur, sans
+            installation.
           </p>
-          <div className="cs-suite-chips">
-            <span className="cs-suite-chip cs-chip-purple">🎛️ Audio</span>
-            <span className="cs-suite-chip cs-chip-teal">⚡ Design</span>
-            <span className="cs-suite-chip cs-chip-amber">🎬 Animation</span>
-          </div>
-        </div>
+        </section>
 
-        {/* Cards */}
+        {/* ══ TROIS LOGICIELS — lignes horizontales empilées (desktop) ══ */}
         {projects.map((p) => (
           <article
             key={p.id}
             className="cs-card home-span-2"
             style={{ "--cs-accent": p.accent }}
           >
-            <div className="cs-card-img-wrap">
-              <img
-                className="cs-card-img"
-                src={`${base}images/${p.image}`}
-                alt={`Aperçu ${p.name}`}
-                loading="lazy"
-              />
-              <div className="cs-card-img-overlay" />
+            {/* Zone média : capture puis démo, immédiatement dessous */}
+            <div className="cs-card-media">
+              <div className="cs-card-img-wrap">
+                <img
+                  className="cs-card-img"
+                  src={`${base}images/${p.image}`}
+                  alt={`Aperçu de l'interface ${p.name}`}
+                  width={p.imageWidth}
+                  height={p.imageHeight}
+                  loading="lazy"
+                />
+                <div className="cs-card-img-overlay" />
+              </div>
+
+              {p.demo && (
+                <a
+                  className="cs-cta-demo"
+                  href={p.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Tester la démo live de ${p.name}`}
+                >
+                  🚀 Tester la démo live
+                </a>
+              )}
             </div>
 
+            {/* Zone informations : nom → badge → description → features → GitHub */}
             <div className="cs-card-body">
               <div className="cs-card-head">
                 <span className="cs-card-emoji" aria-hidden="true">{p.emoji}</span>
@@ -172,18 +189,11 @@ export default function CreativeSuite() {
 
               <div className="cs-ctas">
                 <a
-                  className="cs-cta-demo"
-                  href={p.demo}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  🚀 Tester la démo live
-                </a>
-                <a
                   className="cs-cta-gh"
                   href={p.github}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
+                  aria-label={`GitHub – ${p.name}`}
                 >
                   GitHub →
                 </a>
@@ -192,39 +202,9 @@ export default function CreativeSuite() {
           </article>
         ))}
 
-        {/* ══ À PROPOS ══ */}
-        <section className="home-card home-span-2">
-          <h2 className="home-h2">À propos</h2>
-
-          <p style={{ marginTop: 8, color: "#ccd0d8ff" }}>
-            Développeur full-stack{" "}
-            <strong>(React • Spring Boot • .NET Razor Pages)</strong> et artiste
-            2D/3D <strong>(Blender • Photoshop)</strong>. Titulaire du{" "}
-            <strong>titre CDA (RNCP niveau 6)</strong>. La Creative Suite est
-            mon terrain d'exploration front-end avancé — TypeScript strict,
-            Web Audio API, Canvas, moteurs d'animation.
-          </p>
-
-          <div className="home-group">
-            <h3 className="home-h3">Stack Creative Suite</h3>
-            <ul className="home-badges">
-              <li>React 18</li>
-              <li>TypeScript</li>
-              <li>Vite</li>
-              <li>Tone.js</li>
-              <li>Fabric.js</li>
-              <li>GSAP</li>
-              <li>Web Audio API</li>
-              <li>CSS Modules</li>
-              <li>GitHub Pages</li>
-              <li>GitHub Actions</li>
-            </ul>
-          </div>
-        </section>
-
-        {/* ══ CONTACT ══ */}
-        <section id="contact" className="home-card home-span-2">
-          <h2 className="home-h2">Contact</h2>
+        {/* ══ LIENS — panneau unique, remplace À propos + Contact ══ */}
+        <section id="contact" className="home-card home-span-2 home-section-links">
+          <h2 className="home-h2">Liens</h2>
 
           <ul className="home-contact">
             <li>
@@ -235,18 +215,9 @@ export default function CreativeSuite() {
             <li>
               <a
                 className="home-chip"
-                href="tel:+33629464593"
-                aria-label="Appeler 06 29 46 45 93"
-              >
-                📞&nbsp;06&nbsp;29&nbsp;46&nbsp;45&nbsp;93
-              </a>
-            </li>
-            <li>
-              <a
-                className="home-chip"
                 href="https://github.com/Spiritzen"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 <img
                   className="icon-cat"
@@ -262,7 +233,7 @@ export default function CreativeSuite() {
                 className="home-chip"
                 href="https://fr.linkedin.com/in/sebastien-cantrelle-26b695106"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 🔗&nbsp;LinkedIn
               </a>

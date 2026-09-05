@@ -1,0 +1,55 @@
+/* src/pages/InkRedPlumes.css
+   Styles strictement nécessaires à la page Ink Red Plumes — le reste
+   réutilise les classes .home-* déjà définies dans Home.css. Toutes les
+   règles sont scopées sous .ink-red-plumes-page pour ne jamais affecter
+   les autres pages qui partagent .home-hero/.home-main/.home-footer/
+   .home-card. */
+
+/* ── Largeur élargie, propre à cette page ──
+   Même mécanisme que Home.css (max-width à toutes les largeurs +
+   width:min(...) sous 1260px) avec une valeur plus généreuse, pour donner
+   plus de présence à la vidéo et au carrousel sur grand écran. */
+.ink-red-plumes-page .home-hero,
+.ink-red-plumes-page .home-main,
+.ink-red-plumes-page .home-footer {
+  max-width: 1400px;
+}
+@media (max-width: 1260px) {
+  .ink-red-plumes-page .home-main,
+  .ink-red-plumes-page .home-footer {
+    width: min(1400px, 100% - 32px);
+  }
+}
+
+/* ── Actions sous la vidéo : "Ouvrir sur YouTube" + GitHub, côte à côte
+   sur desktop, empilées/à la ligne sur mobile ── */
+.irp-video-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* ── "Du besoin au produit" — trois cartes courtes ── */
+.irp-journey-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.irp-journey-card {
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 16px 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+}
+.irp-journey-card h3 {
+  margin-top: 0;
+}
+.irp-journey-card p {
+  margin: 6px 0 0;
+  color: #ccd0d8;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}

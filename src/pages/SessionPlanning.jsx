@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Carousel from "../components/Carousel.jsx";
 import { getSessionPlanningSlides } from "../data/dataSessionPlanningSlides.js";
 import "./Home.css";
+import "./SessionPlanning.css";
 
 export default function SessionPlanning() {
   const [loaded, setLoaded] = useState(false);
@@ -13,7 +14,7 @@ export default function SessionPlanning() {
   const slides = getSessionPlanningSlides(base);
 
   return (
-    <div className={`home-page theme-ink-marble ${loaded ? "home-fade-in" : ""}`}>
+    <div className={`home-page theme-ink-marble session-planning-page ${loaded ? "home-fade-in" : ""}`}>
       <header className="home-hero">
         <div className="home-hero-row">
           <Link
@@ -63,15 +64,25 @@ export default function SessionPlanning() {
             />
           </div>
 
-          <p className="home-video-fallback">
+          <div className="sp-video-actions">
             <a
+              className="home-chip"
               href="https://www.youtube.com/watch?v=I1OuZxcyF3g"
               target="_blank"
               rel="noreferrer"
             >
               Ouvrir sur YouTube
             </a>
-          </p>
+            <a
+              className="home-chip home-chip-accent"
+              href="https://github.com/Spiritzen/MyDashServ"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img className="icon-cat" src={`${base}images/chat.svg`} alt="" aria-hidden="true" />
+              GitHub – MyDashServ
+            </a>
+          </div>
         </section>
 
         {/* Résumé technique (quick) */}
@@ -117,6 +128,9 @@ export default function SessionPlanning() {
             <li>
               <b>Base SQL</b> : MCD + dictionnaire de données + base MariaDB (HeidiSQL)
             </li>
+            <li>
+              <b>Intégrité du planning</b> : contrôles appliqués côté API, même si le frontend est contourné
+            </li>
           </ul>
         </section>
 
@@ -145,18 +159,6 @@ export default function SessionPlanning() {
 
         {/* Carrousel pleine largeur (modale intégrée) */}
         <Carousel slides={slides} />
-
-        {/* Résultat concret */}
-        <section className="home-card home-span-2" id="resultats">
-          <h2 className="home-h2">Résultat concret</h2>
-
-          <p>
-            MyDashServ empêche les <b>doubles affectations</b>, prend en compte <b>disponibilités</b> et <b>congés</b>,
-            détecte les <b>conflits de créneaux</b> et sécurise les actions sensibles selon le rôle.
-            Les contrôles sont appliqués <b>côté API</b> afin de garantir l’intégrité du planning,
-            même si le frontend est contourné.
-          </p>
-        </section>
 
         {/* Endpoints clés */}
         <section className="home-card home-span-2" id="endpoints">
@@ -224,17 +226,6 @@ A.date_fin &gt; B.date_debut
           </p>
         </section>
 
-        {/* CTA recrutement */}
-        <section className="home-card home-span-2" id="cta">
-          <h2 className="home-h2">Ce que je recherche</h2>
-          <p>
-            Je recherche un poste <b>développeur fullstack / backend Java</b> (junior),
-            où je peux apporter : conception d’API robustes, règles métier, sécurité JWT
-            et intégration front React. Je suis également motivé pour monter en compétence
-            sur Docker, CI/CD et pratiques DevOps en contexte d’équipe.
-          </p>
-        </section>
-
         {/* Liens */}
         <section className="home-card home-span-2 home-section-links">
           <h2 className="home-h2">Liens</h2>
@@ -243,18 +234,6 @@ A.date_fin &gt; B.date_debut
               <Link className="home-chip home-chip-accent" to={{ pathname: "/", hash: "#top" }} replace>
                 ← Retour à l’accueil
               </Link>
-            </li>
-
-            <li>
-              <a
-                className="home-chip"
-                href="https://github.com/Spiritzen/MyDashServ"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img className="icon-cat" src={`${base}images/chat.svg`} alt="" aria-hidden="true" />
-                GitHub – MyDashServ
-              </a>
             </li>
 
             <li>
