@@ -1,0 +1,456 @@
+/* src/pages/Sereno.css
+   Styles strictement nécessaires à la page Sereno — le reste réutilise les
+   classes .home-* déjà définies dans Home.css (home-card, home-span-2,
+   home-badges, home-bullets, home-chip, status-pill…). Classes locales
+   préfixées "srn-" pour éviter toute régression sur les autres pages.
+
+   Accent de page : violet, repris directement des dégradés de
+   sereno-embleme.svg (#8B3DFF / #7C2DFF) — distinct du doré réservé à la
+   navigation du portfolio, et distinct du teal historique de la tuile
+   d'accueil (non modifiée ici). */
+
+/* ── Emblème du hero ── */
+.srn-avatar-emblem {
+  width: 120px;
+  height: 120px;
+  display: block;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 10px rgba(139, 61, 255, 0.35));
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .home-avatar-link:hover .srn-avatar-emblem {
+    transform: scale(1.04);
+    filter: drop-shadow(0 0 16px rgba(139, 61, 255, 0.55));
+  }
+}
+@media (max-width: 768px) {
+  .srn-avatar-emblem { width: 92px; height: 92px; }
+}
+
+/* ══ HERO / PREUVE IMMÉDIATE ══ */
+.srn-intro-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin: 14px 0 0;
+}
+.srn-tag {
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(139, 61, 255, 0.10);
+  border: 1px solid rgba(139, 61, 255, 0.28);
+  color: #d3bbff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.srn-github-cta {
+  margin-top: 14px;
+}
+
+/* ══ CARROUSEL — implémentation propre à Sereno ══
+   Choix : pas de réutilisation de components/Carousel.jsx (grille de
+   vignettes + autoplay), car le cahier des charges exige une grande image
+   dominante, une légende visible sans ouvrir la modale, un compteur
+   explicite et aucun défilement automatique. Modifier le composant
+   partagé aurait risqué de changer InkRedPlumes et SessionPlanning. */
+.srn-carousel {
+  margin-top: 18px;
+}
+
+.srn-carousel-stage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.srn-carousel-frame {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  aspect-ratio: 2 / 1;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #05070c;
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.srn-carousel-btn-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+.srn-carousel-btn-img:focus-visible {
+  outline: 2px solid var(--accent, #8b3dff);
+  outline-offset: -2px;
+}
+
+.srn-carousel-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #05070c;
+}
+
+.srn-carousel-nav {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--fg);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+}
+.srn-carousel-nav:hover {
+  border-color: rgba(139, 61, 255, 0.45);
+  background: rgba(139, 61, 255, 0.12);
+  transform: translateY(-1px);
+}
+.srn-carousel-nav:focus-visible {
+  outline: 2px solid var(--accent, #8b3dff);
+  outline-offset: 2px;
+}
+
+.srn-carousel-meta {
+  margin-top: 12px;
+}
+.srn-carousel-titlecount {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.srn-carousel-title {
+  margin: 0;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #eef2f7;
+}
+.srn-carousel-count {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #c9a6ff;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Compteur + bouton Lecture/Pause, groupés et toujours visibles (jamais
+   masqués au seul survol). */
+.srn-carousel-controls {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.srn-carousel-playpause {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(139, 61, 255, 0.30);
+  background: rgba(139, 61, 255, 0.08);
+  color: #d3bbff;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.srn-carousel-playpause:hover {
+  border-color: rgba(139, 61, 255, 0.55);
+  background: rgba(139, 61, 255, 0.14);
+}
+.srn-carousel-playpause:focus-visible {
+  outline: 2px solid var(--accent, #8b3dff);
+  outline-offset: 2px;
+}
+
+.srn-carousel-caption {
+  margin: 4px 0 0;
+  color: #ccd0d8;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+.srn-carousel-expand {
+  margin-top: 10px;
+  padding: 8px 14px;
+  min-height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(139, 61, 255, 0.30);
+  background: rgba(139, 61, 255, 0.08);
+  color: #d3bbff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.srn-carousel-expand:hover {
+  border-color: rgba(139, 61, 255, 0.55);
+  background: rgba(139, 61, 255, 0.14);
+}
+.srn-carousel-expand:focus-visible {
+  outline: 2px solid var(--accent, #8b3dff);
+  outline-offset: 2px;
+}
+
+/* Indicateurs — petits points, grande cible tactile */
+.srn-carousel-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin-top: 10px;
+}
+.srn-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.srn-dot::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.srn-dot.is-active::before {
+  background: #8b3dff;
+  transform: scale(1.3);
+}
+.srn-dot:focus-visible {
+  outline: 2px solid var(--accent, #8b3dff);
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+@media (max-width: 640px) {
+  .srn-carousel-stage { gap: 4px; }
+  .srn-carousel-nav { width: 40px; height: 40px; font-size: 1.1rem; }
+}
+
+/* ── Modale plein cadre ── */
+.srn-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(5, 7, 12, 0.86);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.srn-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  max-height: 100%;
+  overflow-y: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: var(--bg2, #0b0e13);
+  padding: 20px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+}
+.srn-modal-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 72vh;
+  object-fit: contain;
+  background: #05070c;
+  border-radius: 10px;
+}
+.srn-modal-title {
+  margin: 14px 0 4px;
+  text-align: center;
+}
+.srn-modal-caption {
+  text-align: center;
+  color: #ccd0d8;
+  margin: 0;
+}
+.srn-modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+/* ══ TROIS PREUVES COURTES ══ */
+.srn-proofs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.srn-proof-card {
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 16px 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+}
+.srn-proof-card p {
+  margin: 6px 0 0;
+  color: #ccd0d8;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* ══ PARCOURS D'UNE FACTURE — frise en 5 étapes ══ */
+.srn-journey-flow {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.srn-journey-step {
+  flex: 1 1 160px;
+  min-width: 140px;
+  padding: 14px 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-strong);
+  background: rgba(139, 61, 255, 0.05);
+}
+.srn-journey-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(139, 61, 255, 0.18);
+  border: 1px solid rgba(139, 61, 255, 0.4);
+  color: #d3bbff;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.srn-journey-step h3 {
+  margin: 10px 0 4px;
+  font-size: 0.98rem;
+}
+.srn-journey-step p {
+  margin: 0;
+  font-size: 0.86rem;
+  color: #ccd0d8;
+  line-height: 1.5;
+}
+.srn-journey-arrow {
+  align-self: center;
+  flex: 0 0 auto;
+  color: rgba(139, 61, 255, 0.55);
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .srn-journey-flow {
+    flex-direction: column;
+  }
+  .srn-journey-arrow {
+    align-self: flex-start;
+    transform: rotate(90deg);
+    margin-left: 10px;
+  }
+}
+
+/* ══ LE VRAI DÉFI MÉTIER ══ */
+.srn-challenge-list {
+  margin-top: 12px;
+}
+
+/* ══ SOUS LE CAPOT — details/summary repliable ══ */
+.srn-details-summary {
+  cursor: pointer;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2.6vw, 1.35rem);
+  color: #eef2f7;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.srn-details-summary::-webkit-details-marker {
+  display: none;
+}
+.srn-details-summary::before {
+  content: "▸";
+  color: var(--accent);
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+.srn-details[open] .srn-details-summary::before {
+  transform: rotate(90deg);
+}
+.srn-details-summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.srn-details-block + .srn-details-block {
+  margin-top: 18px;
+}
+.srn-details-block h3 {
+  margin: 0 0 6px;
+}
+
+.srn-stack-band {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* ══ ÉTAT RÉEL DU PRODUIT — deux colonnes ══ */
+.srn-state-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 8px;
+}
+.srn-state-col h3 {
+  margin: 0 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.srn-state-done h3 { color: #5eead4; }
+.srn-state-next h3 { color: #fcd34d; }
+
+@media (prefers-reduced-motion: reduce) {
+  .srn-avatar-emblem,
+  .srn-details-summary::before,
+  .srn-carousel-nav,
+  .srn-dot::before {
+    transition: none;
+  }
+}
