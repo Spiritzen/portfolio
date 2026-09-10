@@ -1,0 +1,148 @@
+/* src/pages/NotFound.css
+   Page 404 personnalisée. Volontairement autonome : n'importe pas
+   Home.css, mais réutilise ses variables globales (--accent, --card,
+   --border, --fg, --muted, --font-title…) déjà définies dans :root et
+   toujours chargées puisque Home.jsx (non lazy) importe Home.css. Les
+   classes .home-cta / .home-cta-secondary sont réutilisées telles
+   quelles pour les deux CTA principaux, sans redéfinition ici. */
+
+.notfound-main {
+  position: relative;
+  z-index: 3; /* au-dessus du fond et du NeuralBackground, comme .home-hero/.home-main */
+  min-height: 100vh;
+  min-height: 100svh; /* évite qu'une vh rigide masque les actions sous la barre d'adresse mobile */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 16px;
+  box-sizing: border-box;
+}
+
+.notfound-composition {
+  width: min(560px, 100%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Emblème : grand "404" décoratif + phénix superposés au centre ──
+   Empilement par grille (même cellule) plutôt qu'un position:absolute
+   arbitraire : centrage garanti à toutes les largeurs, aucun risque de
+   débordement ou de chevauchement disgracieux sur mobile. */
+.notfound-emblem {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(72vw, 320px);
+  margin: 0 auto 8px;
+}
+.notfound-glyph {
+  grid-area: 1 / 1;
+  margin: 0;
+  font-family: var(--font-title);
+  font-weight: 700;
+  line-height: 1;
+  font-size: clamp(4.2rem, 22vw, 9rem);
+  color: rgba(212, 175, 55, 0.28); /* accent doré en faible opacité, cohérent avec la DA */
+  user-select: none;
+}
+.notfound-phoenix {
+  grid-area: 1 / 1;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 12px 7px var(--ring);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .notfound-phoenix:hover {
+    transform: scale(1.03) rotate(-5deg);
+    box-shadow: 0 0 14px 9px var(--ring);
+  }
+}
+@media (max-width: 480px) {
+  .notfound-phoenix {
+    width: 84px;
+    height: 84px;
+  }
+}
+
+.notfound-eyebrow {
+  margin: 8px 0 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #e8cb6a;
+}
+
+.notfound-title {
+  margin: 8px 0 0;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 5vw, 2.1rem);
+  line-height: 1.25;
+  letter-spacing: 0.2px;
+  color: var(--fg);
+}
+
+.notfound-text {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.notfound-signature {
+  margin: 10px 0 0;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--muted);
+  opacity: 0.85;
+}
+
+/* ── Actions ── */
+.notfound-actions {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.notfound-link-tertiary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 44px; /* zone tactile ≥ 44px, comme les deux CTA .home-cta */
+  padding: 10px 14px;
+  color: var(--fg);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+  text-underline-offset: 3px;
+}
+.notfound-link-tertiary:hover {
+  color: #fff;
+  text-decoration-color: var(--accent);
+}
+.notfound-link-tertiary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .notfound-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .notfound-actions .home-cta,
+  .notfound-actions .notfound-link-tertiary {
+    width: 100%;
+  }
+}
