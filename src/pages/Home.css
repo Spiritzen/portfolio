@@ -200,13 +200,16 @@ body {
   letter-spacing: .3px;
 }
 .home-subtitle{
-  margin: 0 0 18px;
-  color: var(--muted);
+  margin: 6px 0 0;
+  color: #eef2f7;
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: .1px;
 }
 
 .home-tag{
   display:inline-block;
-  margin:4px 0 6px;
+  margin:6px 0 4px;
   padding:4px 8px;
   border:1px solid var(--border);
   border-radius:999px;
@@ -278,7 +281,11 @@ body {
 
 /* CTA */
 .home-cta{
-  display:inline-block;
+  display:inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 44px; /* ✅ zone tactile ≥ 44px */
   padding: 10px 18px;
   border-radius: 999px;
   background: rgba(212,175,55,.10);
@@ -302,9 +309,37 @@ body {
   outline: 2px solid var(--accent, #d4af37);
   outline-offset: 3px;
 }
-.home-hero-row .home-cta{ margin-left: auto; }
+.home-hero-row > .home-cta{ margin-left: auto; }
+
+/* ✅ CTA secondaire — plus sobre que le CTA doré, mais bien visible
+   (bordure claire + fond neutre), utilisé partout où un second CTA
+   accompagne le CTA principal (hero, zone de conversion). */
+.home-cta-secondary{
+  background: rgba(255,255,255,.05);
+  color: var(--fg);
+  border-color: var(--border-strong);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+}
+.home-cta-secondary:hover{
+  background: rgba(255,255,255,.09);
+  border-color: rgba(255,255,255,.22);
+  color: var(--fg);
+  box-shadow: 0 8px 18px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+/* ✅ Conteneur des deux CTA du hero — remplace le CTA unique */
+.home-hero-ctas{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-left: auto;
+}
 
 /* ============ MAIN GRID ============ */
+/* Grille de base (2 colonnes "projets / video") — toujours utilisée par
+   Ink Red Plumes et Session Planning, qui réutilisent .home-main tel
+   quel. NE PAS modifier ces règles : voir l'override scopé
+   .home-index-page .home-main juste après, propre à l'accueil. */
 .home-main{
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
@@ -314,6 +349,16 @@ body {
 }
 .home-projets{ grid-area: projets; }
 .home-video{ grid-area: video; }
+
+/* ✅ Accueil uniquement — la vidéo n'est plus à côté de la liste de
+   projets (déplacée en section "Mon parcours" indépendante) : chaque
+   section s'empile verticalement en pleine largeur. Scopé à
+   .home-index-page pour ne jamais affecter Ink Red Plumes / Session
+   Planning, qui gardent la grille 2 colonnes ci-dessus. */
+.home-index-page .home-main{
+  display: flex;
+  flex-direction: column;
+}
 
 .home-video-fallback{
   text-align: center;
@@ -352,10 +397,127 @@ body {
    Sébastien (sprint accueil R2). Ne pas réintroduire repeat(auto-fit,…),
    auto-fill ou repeat(2, …) ici : cela recréerait 2+ colonnes selon la
    largeur disponible, ce qui est exactement ce qui a été refusé. */
+/* ============ PREUVES VISUELLES — Sereno & AgencyOS ============
+   Deux cartes vedettes, toujours empilées l'une sous l'autre (une seule
+   colonne, comme le reste de la grille projets). Chaque carte est un
+   unique lien (image + contenu) : pas d'imbrication de liens. */
+.home-projects-featured{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 14px 0 20px;
+}
+.home-project-feature{
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: inherit;
+  text-decoration: none;
+  transition: transform .25s ease, box-shadow .35s ease, border-color .25s ease;
+}
+.home-project-feature:hover{
+  transform: translateY(-3px);
+}
+.home-project-feature:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.home-project-feature-img{
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1920 / 955;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border);
+}
+.home-project-feature-body{
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.home-project-feature-head{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  justify-content: space-between;
+}
+.home-project-feature-head > *{
+  min-width: 0; /* ✅ autorise le rétrécissement dans un conteneur flex */
+}
+/* ✅ Les libellés de statut peuvent être longs (ex. Sereno) : autoriser le
+   retour à la ligne ici plutôt que de laisser .status-pill (nowrap par
+   défaut) déborder et se faire couper par overflow:hidden sur mobile. */
+.home-project-feature-head .status-pill{
+  white-space: normal;
+  text-align: left;
+}
+.home-project-feature-title{
+  margin: 0;
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+.home-project-feature-desc{
+  margin: 0;
+  color: #ccd0d8;
+  line-height: 1.6;
+}
+.home-project-feature-link{
+  margin-top: 4px;
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--accent, #d4af37);
+}
+
+/* Accents identitaires : Sereno teal, AgencyOS violet — mêmes teintes
+   que sur leurs pages respectives et sur les tuiles secondaires. */
+.home-project-feature-sereno{ border-color: rgba(13, 148, 136, .25); }
+.home-project-feature-sereno:hover{
+  border-color: rgba(13, 148, 136, .55);
+  box-shadow: 0 12px 28px rgba(13, 148, 136, .22);
+}
+.home-project-feature-agency{ border-color: rgba(124, 58, 237, .25); }
+.home-project-feature-agency:hover{
+  border-color: rgba(124, 58, 237, .55);
+  box-shadow: 0 12px 28px rgba(124, 58, 237, .22);
+}
+
+/* ✅ Statut honnête neutre (démo indisponible), même famille visuelle
+   que .status-dev/.status-proto/.status-mockup/.status-client. */
+.status-offline{
+  color: #cbd5e1;
+  background: rgba(148, 163, 184, .10);
+  border-color: rgba(148, 163, 184, .35);
+}
+
+/* À partir de 700px : image et texte côte à côte dans chaque carte
+   vedette (les deux cartes restent empilées entre elles). */
+@media (min-width: 700px){
+  .home-project-feature{
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .home-project-feature-img{
+    width: 46%;
+    height: auto;
+    border-bottom: 0;
+    border-right: 1px solid var(--border);
+  }
+  .home-project-feature-body{
+    width: 54%;
+    justify-content: center;
+  }
+}
+
 .home-grid{
   list-style: none;
   padding: 0;
-  margin: 12px 0 0;
+  margin: 4px 0 0;
   display: grid;
   gap: 14px; /* ✅ plus d'espace entre boutons */
   grid-template-columns: 1fr;
@@ -467,6 +629,48 @@ body {
   height: 100%;
   display: block;
   border: 0;
+}
+
+/* ✅ Accueil uniquement — vidéo "Mon parcours" en section secondaire :
+   largeur plafonnée et centrée pour réduire son poids visuel par
+   rapport à son ancien emplacement (grille 1fr/2fr). Les autres pages
+   (Ink Red Plumes, Session Planning) n'utilisent pas cette classe et ne
+   sont donc pas concernées. */
+.home-video-parcours .home-video-wrap{
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ============ ZONE DE CONVERSION (après les preuves) ============ */
+.home-conversion{
+  padding: 18px 20px;
+}
+.home-conversion-row{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.home-conversion-text{
+  margin: 0;
+  font-weight: 600;
+  color: #eef2f7;
+}
+.home-conversion-ctas{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+@media (max-width: 600px){
+  .home-conversion-row{
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  .home-conversion-ctas{
+    justify-content: center;
+  }
 }
 
 /* ============ SPAN-2 ============ */
@@ -613,7 +817,11 @@ body {
     align-items: center;
     gap: 12px;
   }
-  .home-hero-row .home-cta{ margin-left: 0; }
+  .home-hero-row > .home-cta,
+  .home-hero-ctas{
+    margin-left: 0;
+    justify-content: center;
+  }
 
   .home-avatar{ width: 80px; height: 80px; }
   .home-hero{ padding: 24px 0 12px; }
@@ -628,7 +836,7 @@ body {
     letter-spacing: .2px;
   }
 
-  /* Badge "Open to work" : passe sous le nom, centré */
+  /* Badge "Disponible" : passe sous le nom, centré */
   .home-open-to-work {
     display: block;
     margin: 6px auto 0;

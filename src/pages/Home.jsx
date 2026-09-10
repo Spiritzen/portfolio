@@ -18,17 +18,20 @@ export default function Home() {
   // ✅ Base publique (dépend de vite.config.js → base: '/portfolio/')
   const base = import.meta.env.BASE_URL;
 
-  const goToContact = (e) => {
+  // ✅ Défilement doux réutilisable vers une ancre de la page (Contact,
+  // Projets…), avec mise à jour de l'URL — remplace l'ancien goToContact
+  // dédié pour servir aussi le nouveau CTA "Découvrir mes projets".
+  const scrollToId = (id) => (e) => {
     e.preventDefault();
-    const el = document.getElementById("contact");
+    const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    if (history.replaceState) history.replaceState(null, "", "#contact");
+    if (history.replaceState) history.replaceState(null, "", `#${id}`);
   };
 
   return (
     <div
       id="top"
-      className={`home-page theme-ink-marble ${loaded ? "home-fade-in" : ""}`}
+      className={`home-page theme-ink-marble home-index-page ${loaded ? "home-fade-in" : ""}`}
     >
       <header className="home-hero">
         <div className="home-hero-row">
@@ -45,16 +48,27 @@ export default function Home() {
               Sébastien Cantrelle
               <span className="home-open-to-work">
                 <span className="home-otw-dot" aria-hidden="true"></span>
-                Open to work
+                Disponible
               </span>
             </h1>
+            <p className="home-subtitle">
+              Développeur Full Stack — applications métier &amp; SaaS
+            </p>
             <span className="home-tag">Java / Spring Boot · Ruby on Rails · React</span>
-            <p className="home-subtitle">Concepteur développeur Full Stack — applications métier, SaaS et expériences web</p>
           </div>
 
-          <a className="home-cta" href="#contact" onClick={goToContact}>
-            Contact
-          </a>
+          <div className="home-hero-ctas">
+            <a className="home-cta" href="#projets" onClick={scrollToId("projets")}>
+              Découvrir mes projets
+            </a>
+            <a
+              className="home-cta home-cta-secondary"
+              href="#contact"
+              onClick={scrollToId("contact")}
+            >
+              Me contacter
+            </a>
+          </div>
         </div>
       </header>
 
@@ -62,25 +76,72 @@ export default function Home() {
         <section id="projets" className="home-card home-projets">
           <h2 className="home-h2">Projets récents</h2>
 
-          <ul className="home-grid">
-            {/* ✅ Sélection de référence — 8 réalisations, ordre défini au sprint catalogue */}
-
-            <li className="home-tile home-tile-sereno">
-              <Link className="home-link-tile" to="/sereno">
-                <span>Sereno</span>
+          {/* ✅ Preuves visuelles principales — Sereno et AgencyOS, seuls
+              projets illustrés par une capture d'écran existante. Les 6
+              autres projets restent au format compact ci-dessous : c'est
+              ce contraste qui établit la hiérarchie. */}
+          <div className="home-projects-featured">
+            <Link
+              className="home-project-feature home-project-feature-sereno"
+              to="/sereno"
+              aria-label="Voir le projet Sereno — SaaS de facturation électronique"
+            >
+              <img
+                className="home-project-feature-img"
+                src={`${base}images/sereno/sereno-01-dashboard.jpg`}
+                alt="Tableau de bord Sereno : encaissement constaté, montants en attente et en retard, taux de complétude documentaire et échéances à venir."
+                width="1920"
+                height="954"
+                loading="eager"
+              />
+              <div className="home-project-feature-body">
+                <div className="home-project-feature-head">
+                  <h3 className="home-project-feature-title">Sereno</h3>
+                  <span className="status-pill status-dev">
+                    🛠️ Développement avancé
+                  </span>
+                </div>
+                <p className="home-project-feature-desc">
+                  SaaS de facturation électronique conforme Factur-X, Ruby on Rails + React.
+                </p>
                 <span className="home-tile-tech badge-teal">Rails · React · Factur-X</span>
-              </Link>
-            </li>
+                <span className="home-project-feature-link">Voir le projet Sereno →</span>
+              </div>
+            </Link>
 
-            <li className="home-tile home-tile-agency">
-              <Link className="home-link-tile" to="/agencyos">
-                <span>AgencyOS <span style={{ fontSize: "0.7rem", opacity: 0.7 }}>V2</span></span>
-                <span className="home-tile-tech badge-agency">
-                  Java 21 · Spring Boot · React
-                </span>
-              </Link>
-            </li>
+            <Link
+              className="home-project-feature home-project-feature-agency"
+              to="/agencyos"
+              aria-label="Voir le projet AgencyOS — SaaS multi-tenant de gestion d'agence"
+            >
+              <img
+                className="home-project-feature-img"
+                src={`${base}images/agencyOS/agencyOS1.jpg`}
+                alt="Tableau de bord AgencyOS : chiffre d'affaires du mois, projets actifs, tâches ouvertes et factures impayées."
+                width="1920"
+                height="955"
+                loading="lazy"
+              />
+              <div className="home-project-feature-body">
+                <div className="home-project-feature-head">
+                  <h3 className="home-project-feature-title">
+                    AgencyOS <span style={{ fontSize: "0.7rem", opacity: 0.7 }}>V2</span>
+                  </h3>
+                  <span className="status-pill status-offline">
+                    Démo temporairement hors ligne
+                  </span>
+                </div>
+                <p className="home-project-feature-desc">
+                  SaaS multi-tenant de gestion d'agence, Java / Spring Boot + React.
+                </p>
+                <span className="home-tile-tech badge-agency">Java 21 · Spring Boot · React</span>
+                <span className="home-project-feature-link">Voir le projet AgencyOS →</span>
+              </div>
+            </Link>
+          </div>
 
+          {/* ✅ Autres projets — même ordre qu'avant, format compact */}
+          <ul className="home-grid home-grid-secondary">
             <li className="home-tile home-tile-irp">
               <Link className="home-link-tile" to="/ink-red-plumes">
                 <span>Ink Red Plumes</span>
@@ -122,43 +183,25 @@ export default function Home() {
                 <span className="home-tile-tech badge-pink">Astro · React · TypeScript</span>
               </Link>
             </li>
-
           </ul>
         </section>
 
-        <section className="home-card home-video">
-          <h2 className="home-h2">Mon parcours — From Code to Creation</h2>
-
-          <div className="home-video-wrap">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/DVOQzauF8Es?rel=0&modestbranding=1"
-              title="Portfolio vidéo"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+        {/* ✅ Zone de conversion sobre, après les preuves — pas de doublon
+            avec la section Contact complète plus bas. */}
+        <section className="home-card home-conversion">
+          <div className="home-conversion-row">
+            <p className="home-conversion-text">
+              Un besoin métier ou SaaS à cadrer&nbsp;? Discutons-en.
+            </p>
+            <div className="home-conversion-ctas">
+              <a className="home-cta" href="#contact" onClick={scrollToId("contact")}>
+                Me contacter
+              </a>
+              <a className="home-cta home-cta-secondary" href={`${base}cv.pdf`} download>
+                Télécharger mon CV
+              </a>
+            </div>
           </div>
-
-          {/* ✅ Texte de clarification (pré-CDA / post-CDA) */}
-          <p className="home-video-note">
-            ⚠️ Cette vidéo a été réalisée avant ma formation Concepteur
-            Développeur d’Applications (CDA).
-            <br />
-            Elle présente mon parcours, mon profil et ma démarche.
-            <br />
-            👉 Les vidéos suivantes présentent mes projets post-CDA, avec
-            démonstrations techniques détaillées.
-          </p>
-
-          <p style={{ textAlign: "center", marginTop: 8 }}>
-            <a
-              href="https://www.youtube.com/watch?v=DVOQzauF8Es"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Ouvrir la vidéo sur YouTube
-            </a>
-          </p>
         </section>
 
         {/* ✅ Bloc "Ce que je cherche" — positionnement à jour (sprint accueil R2) */}
@@ -224,7 +267,7 @@ export default function Home() {
           <p style={{ marginTop: 10, color: "#ccd0d8ff" }}>
             👉 Si vous recherchez un développeur capable de comprendre le métier
             autant que la technique,{" "}
-            <a href="#contact" onClick={goToContact}>
+            <a href="#contact" onClick={scrollToId("contact")}>
               échangeons directement
             </a>
             .
@@ -338,6 +381,47 @@ export default function Home() {
               <li>Revue de code & dette technique</li>
             </ul>
           </div>
+        </section>
+
+        {/* ✅ Vidéo déplacée en section secondaire, après "À propos" — elle
+            n'utilise plus la grille 1fr/2fr (supprimée pour l'accueil, cf.
+            .home-index-page .home-main dans Home.css) et son poids visuel
+            est désormais maîtrisé (largeur plafonnée), cohérent avec les
+            autres cartes. Le contenu et l'avertissement honnête sur son
+            ancienneté sont conservés à l'identique. */}
+        <section className="home-card home-video home-video-parcours">
+          <h2 className="home-h2">Mon parcours — Du code à la création</h2>
+
+          <div className="home-video-wrap">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/DVOQzauF8Es?rel=0&modestbranding=1"
+              title="Portfolio vidéo"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+
+          {/* ✅ Texte de clarification (pré-CDA / post-CDA) */}
+          <p className="home-video-note">
+            ⚠️ Cette vidéo a été réalisée avant ma formation Concepteur
+            Développeur d’Applications (CDA).
+            <br />
+            Elle présente mon parcours, mon profil et ma démarche.
+            <br />
+            👉 Les vidéos suivantes présentent mes projets post-CDA, avec
+            démonstrations techniques détaillées.
+          </p>
+
+          <p style={{ textAlign: "center", marginTop: 8 }}>
+            <a
+              href="https://www.youtube.com/watch?v=DVOQzauF8Es"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Ouvrir la vidéo sur YouTube
+            </a>
+          </p>
         </section>
 
         <section id="contact" className="home-card home-span-2">

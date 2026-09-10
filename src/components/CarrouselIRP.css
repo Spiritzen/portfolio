@@ -193,6 +193,24 @@ width: auto;
   opacity: .95;
 }
 
+/* ── Ligne "indice + bouton Pause/Lecture" au-dessus du carrousel ──
+   Le bouton est toujours visible (jamais masqué derrière un hover),
+   actionnable au clavier et hérite du focus visible de .home-chip. */
+.irp-controls{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: -4px 0 10px;
+}
+.irp-controls .home-hint{
+  margin: 0;
+}
+.irp-play-toggle{
+  white-space: nowrap;
+}
+
 /* ——— Mobile : on clippe dur et on désactive l’élévation ——— */
 @media (max-width: 768px) {
   .irp-viewport {

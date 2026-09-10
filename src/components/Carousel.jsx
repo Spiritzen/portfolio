@@ -14,6 +14,17 @@ export default function Carousel({ slides }) {
   const closeBtnRef = useRef(null);
   const swiperRef = useRef(null);
 
+  // ── Accessibilité de l'autoplay ──
+  // 1) Si "mouvement réduit" est déjà actif au chargement, l'autoplay ne
+  //    démarre pas (état initial du bouton Pause/Lecture cohérent).
+  // 2) L'utilisateur garde toujours la main via le bouton Pause/Lecture,
+  //    actionnable au clavier, jamais masqué derrière un hover.
+  // 3) La navigation manuelle (flèches, pagination, ouverture de la
+  //    modale) reste inchangée dans tous les cas.
+  const [playing, setPlaying] = useState(
+    () => !(typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches)
+  );
+
   const openModal = useCallback((i) => {
     setOpen(i);
     swiperRef.current?.autoplay?.stop?.();
@@ -22,8 +33,39 @@ export default function Carousel({ slides }) {
 
   const closeModal = useCallback(() => {
     setOpen(null);
-    swiperRef.current?.autoplay?.start?.();
+    if (playing) swiperRef.current?.autoplay?.start?.();
     document.body.style.overflow = "";
+  }, [playing]);
+
+  const togglePlaying = useCallback(() => {
+    setPlaying((p) => {
+      const next = !p;
+      if (next) swiperRef.current?.autoplay?.start?.();
+      else swiperRef.current?.autoplay?.stop?.();
+      return next;
+    });
+  }, []);
+
+  // Coupe l'autoplay dès le montage si la préférence était déjà active
+  // (Swiper le démarre par défaut via la prop `autoplay`).
+  useEffect(() => {
+    if (!playing) swiperRef.current?.autoplay?.stop?.();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Écoute un changement de préférence en cours de visite : si
+  // "mouvement réduit" devient actif, on met en pause proprement.
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return undefined;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const onChange = (e) => {
+      if (e.matches) {
+        setPlaying(false);
+        swiperRef.current?.autoplay?.stop?.();
+      }
+    };
+    mq.addEventListener?.("change", onChange);
+    return () => mq.removeEventListener?.("change", onChange);
   }, []);
 
   const goPrev = useCallback((e) => {
@@ -95,7 +137,18 @@ export default function Carousel({ slides }) {
   return (
     <section className="home-card home-span-2 irp-section">
       <h2 className="home-h2">Captures commentées</h2>
-      <p className="home-hint">Cliquez une vignette pour ouvrir la fiche détaillée</p>
+
+      <div className="irp-controls">
+        <p className="home-hint">Cliquez une vignette pour ouvrir la fiche détaillée</p>
+        <button
+          type="button"
+          className="home-chip irp-play-toggle"
+          onClick={togglePlaying}
+          aria-pressed={playing}
+        >
+          {playing ? "⏸️ Mettre le carrousel en pause" : "▶️ Relancer le carrousel"}
+        </button>
+      </div>
 
       <div className="irp-viewport">
         <Swiper
